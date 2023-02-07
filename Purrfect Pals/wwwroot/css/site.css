@@ -1,3 +1,23 @@
+:root {
+    --background-color: #F6E6FF;
+    --text-color: #000000;
+    --navbar: #6F4E82;
+    --button-color: #557899;
+    --button-hover: #6484A2;
+    --button-active: #2B3C4D;
+    --accent-color: #56A34F;
+    --accent-highlight-color: #65AB5F;
+
+    /*Dark mode vars*/
+    --dark-mode-bg: #242424;
+    --dark-mode-txt-color: #FFFFFF;
+    --dark-mode-btn: #A2D2FF;
+    --dark-mode-btn-hover: #BDE0FE;
+    --dark-mode-btn-active: #D1E9FF;
+    --dark-mode-accent: #A1F69A;
+    --dark-mode-accent-hover: #CCFFC7;
+}
+
 html {
   font-size: 14px;
 }
