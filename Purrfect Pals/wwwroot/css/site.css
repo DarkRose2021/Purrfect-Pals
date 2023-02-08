@@ -14,12 +14,6 @@
     /*Dark mode vars*/
     --dark-mode-bg: #242424;
     --dark-mode-txt-color: #FFFFFF;
-    --dark-mode-nav-color: #CDB4DB;
-    --dark-mode-btn: #A2D2FF;
-    --dark-mode-btn-hover: #BDE0FE;
-    --dark-mode-btn-active: #D1E9FF;
-    --dark-mode-accent: #65AB5F;
-    --dark-mode-accent-hover: #A1F69A;
 }
 
 html {
@@ -41,6 +35,15 @@ body {
   margin-bottom: 60px;
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.darkmode{
+    background-color: var(--dark-mode-bg);
+    color: var(--dark-mode-txt-color);
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--link-color)!important; 
 }
 
 ::selection {
@@ -84,6 +87,9 @@ a:hover, .nav-link:hover{
     a:active, .nav-link:active {
         color: var(--link-active);
     }
+p{
+    color: var(--link-color)
+}
 
 footer {
     position: absolute;

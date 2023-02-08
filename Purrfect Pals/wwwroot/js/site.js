@@ -1,5 +1,12 @@
-﻿const body = document.getElementById("testing");
+﻿const nav = document.getElementById("navbar");
+const btn = document.getElementsByClassName("btn");
 
-function testing() {
-	body.style.backgroundColor = "#FFFFFF";
+
+function ToggleDarkMode() {
+	DarkMode();
+}
+
+function DarkMode() {
+	var body = document.body;
+	body.classList.toggle("darkmode");
 }
