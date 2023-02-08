@@ -25,7 +25,7 @@ namespace Purrfect_Pals.Models{
 
         public string Dislikes { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
         public PetBio(string name, int age, string likes, string dislikes, string image){
 
