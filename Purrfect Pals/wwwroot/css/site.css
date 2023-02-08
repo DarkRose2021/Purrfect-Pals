@@ -1,20 +1,20 @@
 :root {
     --background-color: #F6E6FF;
-    --text-color: #000000;
-    --navbar: #886D97;
-    --button-color: #557899;
-    --button-hover: #6484A2;
-    --button-active: #2B3C4D;
-    --accent-color: #56A34F;
-    --accent-highlight-color: #CCFFC7;
+    --text-color: #242424;
+    --navbar: #CCBED3;
+    --blue: #557899;
+    --blue-hover: #6484A2;
+    --blue-active: #2B3C4D;
+    --green: #56A34F;
+    --green-hover: #CCFFC7;
     --header-color: #5A828C;
     --link-color: #442F50;
     --link-hover: #554260;
     --link-active: #64536E;
     /*Dark mode vars*/
     --dark-mode-bg: #242424;
-    --dark-mode-txt-color: #FFFFFF;
-    --dark-mode-nav-color: #CDB4DB;
+    --dark-mode-txt-color: #F6E6FF;
+    --dark-mode-nav-color: #212121;
     --dark-mode-btn: #A2D2FF;
     --dark-mode-btn-hover: #BDE0FE;
     --dark-mode-btn-active: #D1E9FF;
@@ -53,8 +53,8 @@ body {
 }
 
 ::selection {
-    background-color: var(--accent-color);
-    color: var(--accent-highlight-color);
+    background-color: var(--green);
+    color: var(--green-hover);
 }
 
 .navbar{
@@ -66,20 +66,25 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    color: var(--link-color);
+    text-align: center;
+}
+
 button{
     border: none;
-    background-color: var(--button-color);
+    background-color: var(--blue);
     padding: 1%;
     margin:1%;
     border-radius: 5px;
 }
 
     button:hover {
-        background-color: var(--button-hover);
+        background-color: var(--blue-hover);
     }
 
     button:active {
-        background-color: var(--button-active);
+        background-color: var(--blue-active);
     }
 
 a, .nav-link, a:visited, .nav-link:visited{

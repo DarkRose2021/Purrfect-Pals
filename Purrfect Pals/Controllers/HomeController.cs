@@ -18,10 +18,21 @@ namespace Purrfect_Pals.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Matches()
         {
             return View();
         }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
