@@ -3,10 +3,8 @@ const header = document.getElementsByClassName("header");
 
 
 function ToggleDarkMode() {
-	DarkMode();
-}
-
-function DarkMode() {
 	var body = document.body;
-	body.classList.toggle("darkmode");	
+	nav.classList.toggle("navDarkMode");
+	header.classList.toggle("headerDarkMode");
+	body.classList.toggle("darkmode");
 }

@@ -47,6 +47,14 @@ body {
 	color: var(--dark-mode-txt-color);
 }
 
+.headerDarkMode{
+	color: var(--dark-mode-header);
+}
+
+.navDarkMode {
+	background-color: var(--dark-mode-nav-color);
+}
+
 .border-bottom {
 	border-bottom: 1px solid var(--link-color) !important;
 }
@@ -82,21 +90,21 @@ a, .nav-link, a:visited, .nav-link:visited {
 		color: var(--link-active);
 	}
 
-button {
+button, .btn {
 	border: none;
 	background-color: var(--blue);
-	color: var(--text-color);
+	color: var(--text-color) !important;
 	padding: 1%;
 	margin: 1%;
 	border-radius: 5px;
 }
 
-	button:hover{
+	button:hover, .btn:hover{
 		background-color: var(--blue-hover);
 		color: var(--text-color);
 	}
 
-	button:active{
+	button:active, .btn:active{
 		background-color: var(--blue-active);
 		color: var(--text-color);
 	}

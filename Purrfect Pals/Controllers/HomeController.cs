@@ -17,6 +17,10 @@ namespace Purrfect_Pals.Controllers
         {
             return View();
         }
+        public IActionResult ProfilePage()
+        {
+            return View();
+        }
 
         public IActionResult Matches()
         {
