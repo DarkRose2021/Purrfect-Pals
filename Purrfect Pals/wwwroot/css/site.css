@@ -38,8 +38,8 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: var(--dark-mode-bg);
-  color: var(--dark-mode-txt-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .darkmode{
@@ -57,7 +57,7 @@ body {
 }
 
 .navbar{
-    background-color: var(--dark-mode-nav-color);
+    background-color: var(--navbar);
 }
 
 h1 {
