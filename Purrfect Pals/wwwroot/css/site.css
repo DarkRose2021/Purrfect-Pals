@@ -1,25 +1,24 @@
 :root {
-    --background-color: #F6E6FF;
+    --background-color: #BECDD7;
     --text-color: #242424;
-    --navbar: #CCBED3;
+    --navbar: #B1C3CF;
+    --border: #A1B1BC;
+    /*Accent colors*/
     --blue: #557899;
     --blue-hover: #6484A2;
     --blue-active: #2B3C4D;
     --green: #56A34F;
     --green-hover: #CCFFC7;
-    --header-color: #5A828C;
-    --link-color: #442F50;
-    --link-hover: #554260;
-    --link-active: #64536E;
+    --header-color: #442F50;
+    --link-color: #336836;
+    --link-hover: #2A562D;
+    --link-active: #264E29;
     /*Dark mode vars*/
     --dark-mode-bg: #242424;
-    --dark-mode-txt-color: #F6E6FF;
+    --dark-mode-txt-color: #BECDD7; /*light mode background color  #8361A1*/
     --dark-mode-nav-color: #212121;
-    --dark-mode-btn: #A2D2FF;
-    --dark-mode-btn-hover: #BDE0FE;
-    --dark-mode-btn-active: #D1E9FF;
-    --dark-mode-accent: #65AB5F;
-    --dark-mode-accent-hover: #A1F69A;
+    --dark-mode-header: #8361A1;
+    --dm-border: #1E1E1E;
 }
 
 html {
@@ -39,8 +38,8 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--dark-mode-bg);
+  color: var(--dark-mode-txt-color);
 }
 
 .darkmode{
@@ -58,11 +57,11 @@ body {
 }
 
 .navbar{
-    background-color: var(--navbar);
+    background-color: var(--dark-mode-nav-color);
 }
 
 h1 {
-    color: var(--header-color);
+    color: var(--dark-mode-header);
     text-align: center;
 }
 
