@@ -19,8 +19,7 @@ namespace Purrfect_Pals.Models{
 
         public string PetName { get; set; }
 
-        public LoginInfo(string username, string password, string petName)
-        {
+        public LoginInfo(string username, string password, string petName){
 
             this.Username = username;
 
