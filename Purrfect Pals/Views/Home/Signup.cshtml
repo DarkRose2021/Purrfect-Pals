@@ -1,26 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<form>
-	<label>Username</label>
-	<input type="text" placeholder="Username" required /> <br />
+﻿
+<div class="form">
+	<form>
+		<label>Username</label>
+		<input type="text" placeholder="Username" required /> <br />
 
-	<label>Enter a Password</label>
-	<input type="password" placeholder="Password" required /><br />
+		<label>Enter a Password</label>
+		<input type="password" placeholder="Password" required /><br />
 
-	<label>Reenter the Password</label>
-	<input type="password" placeholder="Password" required /><br />
+		<label>Reenter the Password</label>
+		<input type="password" placeholder="Password" required /><br />
 
-	<label>Pet Name</label>
-	<input type="text" placeholder="Pet Name" required /><br />
+		<label>Pet Name</label>
+		<input type="text" placeholder="Pet Name" required /><br />
 
-	<label>Pet Breed</label>
-	<input type="radio" id="dog" value="Dog" />
-	<label for="dog" <br />
+		<label>Pet Breed</label><br />
+		<input type="radio" id="dog" value="Dog" />
+		<label for="dog" <br />
 	<input type="radio" value="Cat" /><br />
 
 	<button type="submit">Log in</button>
 	<a asp-action="Signup" asp-controller="Home">Don't have an account? Sign up'</a>
-</form>
+	</form>
+</div>
