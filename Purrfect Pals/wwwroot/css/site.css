@@ -1,107 +1,111 @@
 :root {
-    --background-color: #BECDD7;
-    --text-color: #242424;
-    --navbar: #B1C3CF;
-    --border: #A1B1BC;
-    /*Accent colors*/
-    --blue: #557899;
-    --blue-hover: #6484A2;
-    --blue-active: #2B3C4D;
-    --green: #56A34F;
-    --green-hover: #CCFFC7;
-    --header-color: #442F50;
-    --link-color: #336836;
-    --link-hover: #2A562D;
-    --link-active: #264E29;
-    /*Dark mode vars*/
-    --dark-mode-bg: #242424;
-    --dark-mode-txt-color: #BECDD7; /*light mode background color  #8361A1*/
-    --dark-mode-nav-color: #212121;
-    --dark-mode-header: #8361A1;
-    --dm-border: #1E1E1E;
+	--background-color: #BECDD7;
+	--text-color: #242424;
+	--navbar: #B1C3CF;
+	--border: #A1B1BC;
+	/*Accent colors*/
+	--blue: #557899;
+	--blue-hover: #6484A2;
+	--blue-active: #2B3C4D;
+	--green: #56A34F;
+	--green-hover: #CCFFC7;
+	--header-color: #442F50;
+	--link-color: #336836;
+	--link-hover: #2A562D;
+	--link-active: #264E29;
+	/*Dark mode vars*/
+	--dark-mode-bg: #242424;
+	--dark-mode-txt-color: #BECDD7; /*light mode background color  #8361A1*/
+	--dark-mode-nav-color: #212121;
+	--dark-mode-header: #8361A1;
+	--dm-border: #1E1E1E;
 }
 
 html {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+	html {
+		font-size: 16px;
+	}
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+	position: relative;
+	min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: var(--background-color);
-  color: var(--text-color);
+	margin-bottom: 60px;
+	background-color: var(--background-color);
+	color: var(--text-color);
 }
 
-.darkmode{
-    background-color: var(--dark-mode-bg);
-    color: var(--dark-mode-txt-color);
+.darkmode {
+	background-color: var(--dark-mode-bg);
+	color: var(--dark-mode-txt-color);
 }
 
 .border-bottom {
-    border-bottom: 1px solid var(--link-color)!important; 
+	border-bottom: 1px solid var(--link-color) !important;
 }
 
 ::selection {
-    background-color: var(--green);
-    color: var(--green-hover);
+	background-color: var(--green);
+	color: var(--green-hover);
 }
 
-.navbar{
-    background-color: var(--navbar);
+.navbar {
+	background-color: var(--navbar);
 }
 
 h1 {
-    color: var(--dark-mode-header);
-    text-align: center;
+	color: var(--header-color);
+	text-align: center;
 }
 
 h3 {
-    color: var(--link-color);
-    text-align: center;
+	color: var(--link-color);
+	text-align: center;
 }
 
-button{
-    border: none;
-    background-color: var(--blue);
-    padding: 1%;
-    margin:1%;
-    border-radius: 5px;
+a, .nav-link, a:visited, .nav-link:visited {
+	color: var(--link-color);
 }
 
-    button:hover {
-        background-color: var(--blue-hover);
-    }
+	a:hover, .nav-link:hover {
+		color: var(--link-hover);
+	}
 
-    button:active {
-        background-color: var(--blue-active);
-    }
+	a:active, .nav-link:active {
+		color: var(--link-active);
+	}
 
-a, .nav-link, a:visited, .nav-link:visited{
-    color: var(--link-color);
+button {
+	border: none;
+	background-color: var(--blue);
+	color: var(--text-color);
+	padding: 1%;
+	margin: 1%;
+	border-radius: 5px;
 }
 
-a:hover, .nav-link:hover{
-    color: var(--link-hover);
-}
+	button:hover{
+		background-color: var(--blue-hover);
+		color: var(--text-color);
+	}
 
-    a:active, .nav-link:active {
-        color: var(--link-active);
-    }
+	button:active{
+		background-color: var(--blue-active);
+		color: var(--text-color);
+	}
+
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-    padding: .5%;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
+	padding: .5%;
 }

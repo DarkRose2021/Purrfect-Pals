@@ -1,5 +1,5 @@
 ﻿const nav = document.getElementById("navbar");
-const btn = document.getElementsByClassName("btn");
+const header = document.getElementsByClassName("header");
 
 
 function ToggleDarkMode() {
@@ -8,5 +8,5 @@ function ToggleDarkMode() {
 
 function DarkMode() {
 	var body = document.body;
-	body.classList.toggle("darkmode");
+	body.classList.toggle("darkmode");	
 }
