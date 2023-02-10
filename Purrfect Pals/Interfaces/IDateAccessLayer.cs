@@ -19,11 +19,6 @@ namespace Purrfect_Pals.Interfaces{
 
         void RemoveUser(int Id, string PetName);
 
-        //should take the Id of the user, go to that Id in the bio's table
-        //and input the data into those fields
-
-        void AddBio(int Id, PetBio bio);
-
         //pretty simple, it should be able to go and edit the correct user's bio
 
         void EditBio(int Id);
@@ -33,8 +28,6 @@ namespace Purrfect_Pals.Interfaces{
         //with the user's Id as the variable to check / pass through?
 
         IEnumerable<PetBio> FindUser(string PetName);
-
-
 
     }
 
