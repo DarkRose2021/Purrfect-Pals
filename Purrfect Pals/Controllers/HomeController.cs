@@ -19,7 +19,7 @@ namespace Purrfect_Pals.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.cattoImage = MagicallyGetDog();
+            
             return View();
         }
         public IActionResult ProfilePage()
