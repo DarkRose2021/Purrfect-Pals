@@ -22,11 +22,26 @@ namespace Purrfect_Pals.Controllers
             ViewBag.cattoImage = MagicallyGetDog();
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult ProfilePage()
         {
             return View();
         }
+
+        public IActionResult Matches()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

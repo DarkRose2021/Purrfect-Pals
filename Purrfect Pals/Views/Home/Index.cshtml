@@ -1,12 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<h1>Purrfect Pals</h1>
-<p>
-    Testing - katie
-    Testing - johnヾ(￣▽￣)
+<h1 class="header">Purrfect Pals</h1>
 
-    <button>Testing button color</button>
-</p>
+<div>
+    <h3>We are a social media site for owners to find their pet the <em>purrfect</em> companion or playdate.</h3>
+    <br />
+    <a asp-action="Signup" asp-controller="Home" class="btn">Join Now!</a>
+</div>
 
-    <img src="@ViewBag.cattoimage">  </img>
+<button ToggleDarkMode()>darkmode</button>

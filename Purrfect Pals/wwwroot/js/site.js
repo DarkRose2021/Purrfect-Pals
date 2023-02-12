@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const nav = document.getElementById("navbar");
+const header = document.getElementsByClassName("header");
 
-// Write your JavaScript code.
+
+function ToggleDarkMode() {
+	var body = document.body;
+	nav.classList.toggle("navDarkMode");
+	header.classList.toggle("headerDarkMode");
+	body.classList.toggle("darkmode");
+}
