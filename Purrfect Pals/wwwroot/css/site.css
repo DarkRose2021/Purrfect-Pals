@@ -52,7 +52,7 @@ body {
 }
 
 .navDarkMode {
-	background-color: var(--dark-mode-nav-color);
+	background-color: var(--dark-mode-nav-color) !important;
 }
 
 .border-bottom {

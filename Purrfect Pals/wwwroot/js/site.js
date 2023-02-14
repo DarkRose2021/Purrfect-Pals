@@ -1,10 +1,10 @@
-﻿const nav = document.getElementById("navbar");
-const header = document.getElementsByClassName("header");
+﻿var nav = document.getElementById("navbar");
+var h1 = document.getElementById("header");
+var body = document.body;
 
 
 function ToggleDarkMode() {
-	var body = document.body;
 	nav.classList.toggle("navDarkMode");
-	/*header.classList.toggle("headerDarkMode");*/
+	h1.classList.toggle("headerDarkMode");
 	body.classList.toggle("darkmode");
 }
