@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Purrfect_Pals.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="lightmode">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" id="navbar">
             <div class="container-fluid">
@@ -26,7 +26,7 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="ProfilePage">Profile</a>
                         </li>
                     </ul>
-                    <a class="nav-link" onclick="ToggleDarkMode()">Toggle Dark Mode</a>
+                    <a class="nav-link" onclick="toggle()">Toggle Dark Mode</a>
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Signup">Sign Up</a>
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
                     
