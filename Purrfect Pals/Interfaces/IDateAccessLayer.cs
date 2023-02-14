@@ -19,15 +19,17 @@ namespace Purrfect_Pals.Interfaces{
 
         void RemoveUser(int Id, string PetName);
 
+
+        //Where you add the bio, also works as an edit
         //pretty simple, it should be able to go and edit the correct user's bio
 
-        void EditBio(int Id);
+        void EditBio(int Id, PetBio bio);
 
-        //should filter through the bio-database searching for any and all with 
-        //that pet name, it should probably return a redirect to a user's bio
-        //with the user's Id as the variable to check / pass through?
+        //finds the bio and user for editing and deleting purposes
 
-        IEnumerable<PetBio> FindUser(string PetName);
+        public PetBio GetBio(int? id);
+
+        public LoginInfo GetUser(int? id);
 
     }
 

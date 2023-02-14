@@ -9,6 +9,8 @@ namespace Purrfect_Pals.Models{
 
     public class LoginInfo{
 
+        [Key]
+
         public int Id { get; set; }
 
         [MaxLength(60)]
@@ -19,6 +21,8 @@ namespace Purrfect_Pals.Models{
 
         public string PetName { get; set; }
 
+        public LoginInfo() { }
+
         public LoginInfo(string username, string password, string petName){
 
             this.Username = username;
@@ -27,6 +31,12 @@ namespace Purrfect_Pals.Models{
         
             this.PetName = petName;
         
+        }
+
+        public override string ToString(){
+
+            return $"Welcome {Username}";
+
         }
 
     }

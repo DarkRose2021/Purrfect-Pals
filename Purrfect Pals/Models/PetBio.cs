@@ -9,6 +9,8 @@ namespace Purrfect_Pals.Models{
 
     public class PetBio{
 
+        [Key]
+
         public int Id { get; set; }
 
         [MaxLength(30)]
@@ -26,6 +28,8 @@ namespace Purrfect_Pals.Models{
         public string Dislikes { get; set; }
 
         public string? Image { get; set; }
+
+        public PetBio() { }
 
         public PetBio(string name, int age, string likes, string dislikes, string image){
 
