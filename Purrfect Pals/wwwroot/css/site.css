@@ -1,24 +1,24 @@
 :root {
-	--background-color: #BECDD7;
-	--text-color: #242424;
-	--navbar: #B1C3CF;
-	--border: #A1B1BC;
+	--background-color: #CFE0C3;
+	--text-color: #1F363D;
+	--navbar: #9EC1A3;
+	--border: #90AF94;
 	/*Accent colors*/
-	--blue: #557899;
-	--blue-hover: #6484A2;
-	--blue-active: #2B3C4D;
-	--green: #56A34F;
-	--green-hover: #CCFFC7;
-	--header-color: #442F50;
-	--link-color: #336836;
-	--link-hover: #2A562D;
-	--link-active: #264E29;
+	--blue: #70A9A1;
+	--blue-hover: #669A92;
+	--blue-active: #5D8C85;
+	--green: #40798C;
+	--green-hover: #70A9A1;
+	--header-color: #356473;
+	--link-color: #4E3D42;
+	--link-hover: #47373C;
+	--link-active: #413237;
 	/*Dark mode vars*/
-	--dark-mode-bg: #242424;
-	--dark-mode-txt-color: #BECDD7; /*light mode background color  #8361A1*/
-	--dark-mode-nav-color: #212121;
-	--dark-mode-header: #8361A1;
-	--dm-border: #1E1E1E;
+	--dark-mode-bg: #1F363D;
+	--dark-mode-txt-color: #CFE0C3; /*light mode background color  #8361A1*/
+	--dark-mode-nav-color: #192D32;
+	--dark-mode-header: #4B96AF;
+	--dm-border: #17292D;
 }
 
 html {
@@ -42,7 +42,7 @@ body {
 
 .lightmode {
 	background-color: var(--background-color);
-	color: var(--text-color);
+	color: var(--text-color) !important;
 }
 
 .headerLightMode {
@@ -63,7 +63,11 @@ body {
 }
 
 .border-bottom {
-	border-bottom: 1px solid var(--link-color) !important;
+	border-bottom: 1px solid var(--border) !important;
+}
+
+.borderDarkMode {
+	border-bottom: 1px solid var(--dm-border) !important;
 }
 
 ::selection {
@@ -81,7 +85,7 @@ h1 {
 }
 
 h3 {
-	color: var(--link-color);
+	color: var(--text-color);
 	text-align: center;
 }
 
