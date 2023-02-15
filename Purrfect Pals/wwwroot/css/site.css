@@ -71,7 +71,7 @@ body {
 	color: var(--green-hover);
 }
 
-.navbar {
+.navbarLightMode {
 	background-color: var(--navbar);
 }
 
