@@ -24,8 +24,6 @@ namespace Purrfect_Pals.Data{
 
             PetBio bio = new PetBio();//bull bio so the database id's match
 
-            db.UserInfo.Add(userInfo);
-
             db.Bio.Add(bio);
 
             db.SaveChanges();
