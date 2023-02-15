@@ -17,15 +17,15 @@ namespace Purrfect_Pals.Models{
 
         public string PetName { get; set; }
 
-        [MaxLength (360)]
+        [MaxLength(360)]
 
-        public string? Biography { get; set; }
+        public string Biography { get; set; }
 
         public int PetAge { get; set; }
 
-        public string Likes { get; set; }
+        public string? Likes { get; set; }
 
-        public string Dislikes { get; set; }
+        public string? Dislikes { get; set; }
 
         public string? Image { get; set; }
 

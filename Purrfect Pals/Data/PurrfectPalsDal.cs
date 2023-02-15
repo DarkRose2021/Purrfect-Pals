@@ -10,6 +10,7 @@ namespace Purrfect_Pals.Data{
     public class PurrfectPalsDal : IDateAccessLayer{
 
         private AppDbContext db;
+
         public PurrfectPalsDal(AppDbContext indb){
 
             db = indb;
@@ -20,11 +21,11 @@ namespace Purrfect_Pals.Data{
 
         }
 
-        public void AddUser(LoginInfo userInfo){
+        public void AddUserBio(PetBio userBio, int Id){
 
-            PetBio bio = new PetBio();//bull bio so the database id's match
+            PetBio targetBio = GetBio(Id);
 
-            db.Bio.Add(bio);
+            db.Bio.Add(targetBio);
 
             db.SaveChanges();
 
@@ -62,6 +63,28 @@ namespace Purrfect_Pals.Data{
 
             db.SaveChanges();
         
+        }
+
+        public void AddUser(LoginInfo userInfo){
+
+            PetBio bio = new PetBio();//bull bio so the database id's match
+
+            bio.Biography = "temp";
+
+            bio.PetName = userInfo.PetName;
+
+            bio.Likes = "temp";
+
+            bio.Dislikes = "temp";
+
+            bio.PetAge = 4;
+
+            db.UserInfo.Add(userInfo);
+
+            db.Bio.Add(bio);
+
+            db.SaveChanges();
+
         }
 
     }

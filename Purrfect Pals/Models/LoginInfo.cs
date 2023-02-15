@@ -17,6 +17,8 @@ namespace Purrfect_Pals.Models{
 
         public string Username { get; set; }
 
+        [MinLength(6), MaxLength(27)]
+
         public string Password { get; set; }
 
         public string PetName { get; set; }

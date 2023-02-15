@@ -12,6 +12,8 @@ namespace Purrfect_Pals.Interfaces{
         //should take in all the parts and add to user database, creates the bio
         //to hookup the Id's together
 
+        void AddUserBio(PetBio userBio, int Id);
+
         void AddUser(LoginInfo userInfo);
         
         //should search for the Id passed in and delete it from both databases
