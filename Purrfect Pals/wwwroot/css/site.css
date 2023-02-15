@@ -19,6 +19,10 @@
 	--dark-mode-nav-color: #192D32;
 	--dark-mode-header: #4B96AF;
 	--dm-border: #17292D;
+	--dm-link: #7A6E71;
+	--dm-link-hover: #6D5F63;
+	--dm-link-active: #5E4F53;
+	--dm-h3: #46595F;
 }
 
 html {
@@ -40,6 +44,7 @@ body {
 	margin-bottom: 60px;
 }
 
+/*lightmode colors*/
 .lightmode {
 	background-color: var(--background-color);
 	color: var(--text-color) !important;
@@ -49,6 +54,31 @@ body {
 	color: var(--header-color);
 }
 
+.h3LightMode {
+	color: var(--text-color);
+}
+
+.navbarLightMode {
+	background-color: var(--navbar);
+}
+
+.border-bottom {
+	border-bottom: 1px solid var(--border) !important;
+}
+
+.linkLightMode{
+	color: var(--link-color);
+}
+
+	.linkLightMode:hover {
+		color: var(--link-hover);
+	}
+
+	.linkLightMode:active {
+		color: var(--link-active);
+	}
+
+/*DarkMode colors*/
 .darkmode {
 	background-color: var(--dark-mode-bg);
 	color: var(--dark-mode-txt-color);
@@ -58,48 +88,39 @@ body {
 	color: var(--dark-mode-header);
 }
 
-.navDarkMode {
-	background-color: var(--dark-mode-nav-color) !important;
+.h3Darkmode {
+	color: var(--blue);
 }
 
-.border-bottom {
-	border-bottom: 1px solid var(--border) !important;
+.navDarkMode {
+	background-color: var(--dark-mode-nav-color) !important;
 }
 
 .borderDarkMode {
 	border-bottom: 1px solid var(--dm-border) !important;
 }
 
+.linkDarkMode {
+	color: var(--dm-link) !important;
+}
+
+	.linkDarkMode:hover {
+		color: var(--dm-link-hover) !important; 
+	}
+
+	.linkDarkMode:active {
+		color: var(--dm-link-active) !important;
+	}
+
+/*regular css*/
 ::selection {
 	background-color: var(--green);
 	color: var(--green-hover);
 }
 
-.navbarLightMode {
-	background-color: var(--navbar);
-}
-
-h1 {
-	color: var(--header-color);
+h1, h3 {
 	text-align: center;
 }
-
-h3 {
-	color: var(--text-color);
-	text-align: center;
-}
-
-a, .nav-link, a:visited, .nav-link:visited {
-	color: var(--link-color);
-}
-
-	a:hover, .nav-link:hover {
-		color: var(--link-hover);
-	}
-
-	a:active, .nav-link:active {
-		color: var(--link-active);
-	}
 
 button, .btn {
 	border: none;
@@ -120,6 +141,11 @@ button, .btn {
 		color: var(--text-color);
 	}
 
+.nav-link {
+	display: block;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+}
 
 footer {
 	position: absolute;
