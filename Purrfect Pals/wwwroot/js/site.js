@@ -1,10 +1,13 @@
 ﻿var nav = document.getElementById("navbar");
 var h1 = document.getElementById("header");
 var body = document.body;
-var darkOn = false;
+
+darkOn = localStorage.getItem("dark") == "true" ? true : false;
+ToggleDarkMode();
 
 function ToggleDarkMode() {
 	localStorage.setItem("dark", darkOn ? "true" : "false");
+	console.log(localStorage.getItem("dark"));
 
 	if (darkOn) {
 		nav.classList.remove("navbarLightMode");
@@ -28,6 +31,7 @@ function ToggleDarkMode() {
 
 }
 
+var darkOn = false;
 function toggle() {
 	darkOn = !darkOn;
 	ToggleDarkMode();
