@@ -7,6 +7,7 @@ var a3 = document.getElementById("a3");
 var a4 = document.getElementById("a4");
 var a5 = document.getElementById("a5");
 var a6 = document.getElementById("a6");
+var a7 = document.getElementById("a7");
 
 if (document.getElementById("h3")) {
 	var h3 = document.getElementById("h3");
@@ -36,6 +37,7 @@ function ToggleDarkMode() {
 		a4.classList.remove("linkLightMode");
 		a5.classList.remove("linkLightMode");
 		a6.classList.remove("linkLightMode");
+		a7.classList.remove("linkLightMode");
 
 		nav.classList.add("navDarkMode");
 		nav.classList.add("borderDarkMode");
@@ -48,6 +50,7 @@ function ToggleDarkMode() {
 		a4.classList.add("linkDarkMode");
 		a5.classList.add("linkDarkMode");
 		a6.classList.add("linkDarkMode");
+		a7.classList.add("linkDarkMode");
 	} else {
 		if (document.getElementById("h3")) {
 			h3.classList.remove("h3Darkmode");
@@ -65,6 +68,7 @@ function ToggleDarkMode() {
 		a4.classList.add("linkLightMode");
 		a5.classList.add("linkLightMode");
 		a6.classList.add("linkLightMode");
+		a7.classList.add("linkLightMode");
 
 		nav.classList.remove("navDarkMode");
 		nav.classList.remove("borderDarkMode");
@@ -77,6 +81,7 @@ function ToggleDarkMode() {
 		a4.classList.remove("linkDarkMode");
 		a5.classList.remove("linkDarkMode");
 		a6.classList.remove("linkDarkMode");
+		a7.classList.remove("linkDarkMode");
 	}
 
 }
