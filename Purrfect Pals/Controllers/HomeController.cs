@@ -14,6 +14,8 @@ namespace Purrfect_Pals.Controllers
     public class HomeController : Controller
     {
 
+        int loggedInUserID = 2;
+
         IDateAccessLayer dal;
 
         public HomeController(IDateAccessLayer indal) {
@@ -42,7 +44,14 @@ namespace Purrfect_Pals.Controllers
         
         }
 
-        public IActionResult Matches()
+		public IActionResult Login()
+		{
+
+			return View();
+
+		}
+
+		public IActionResult Matches()
         {
             return View();
         }
@@ -81,9 +90,11 @@ namespace Purrfect_Pals.Controllers
 
             if (dal.LoginCheck(l.Username, l.Password) == true){
 
+                loggedInUserID = dal.getUser(l.Username).Id;
+
                 TempData["success"] = "Logged In!";
 
-                return RedirectToAction("Testing", "Home");
+                return RedirectToAction("EditBio", "Home");
 
             }else{
                 
@@ -95,7 +106,23 @@ namespace Purrfect_Pals.Controllers
         
         }
 
+        public IActionResult EditBio(){ 
+        
+            return View();
+        
+        }
 
+        [HttpPost]
+
+        public IActionResult EditBio(PetBio bio){
+
+                bio.Image = MagicallyGetCat();
+
+                dal.EditBio(loggedInUserID, bio);
+
+                return RedirectToAction("UserBio", "Home");
+
+        }
 
 
 

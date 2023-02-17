@@ -1,4 +1,4 @@
-﻿@model LoginInfo
+﻿@model PetBio
 
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -6,16 +6,33 @@
 @{
 }
 
-<form asp-controller="Home" asp-action="Login" method="post">
+<form asp-controller="Home" asp-action="EditBio" method="post">
 
-	<label asp-for="Username"></label>
+	<label asp-for="PetName"></label>
 
-	<input asp-for="Username" class="form-control" />
+	<input asp-for="PetName" class="form-control" />
 
-	<label asp-for="Password"></label>
+	<label asp-for="Biography"></label>
 
-	<input asp-for="Password" class="form-control" />
+	<input asp-for="Biography" class="form-control" />
 
+	<label asp-for="PetAge"></label>
+
+	<input asp-for="PetAge" class="form-control" />
+
+	<label asp-for="Likes"></label>
+
+	<input asp-for="Likes" class="form-control" />
+
+	<label asp-for="Dislikes"></label>
+
+	<input asp-for="Dislikes" class="form-control" />
+
+	<label asp-for="Image" hidden></label>
+
+	<input asp-for="Image" class="form-control" hidden/>
+
+	<button type="submit"> Save Changes </button>
 
 </form>
 

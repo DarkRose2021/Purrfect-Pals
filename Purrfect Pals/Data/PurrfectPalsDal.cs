@@ -33,9 +33,13 @@ namespace Purrfect_Pals.Data{
 
         public void EditBio(int Id, PetBio bio){
 
-            PetBio targetBio = GetBio(Id);
+            //figure out how the actual fuck to edit the right one by Id.
 
-            db.Bio.Update(targetBio);
+            db.Bio.SkipWhile(m => m.Id != Id);
+
+            db.Bio.Update(bio);
+
+            db.SaveChanges();
 
         }
 
@@ -118,6 +122,12 @@ namespace Purrfect_Pals.Data{
 		IEnumerable<LoginInfo> IDateAccessLayer.GetUsers(){
 
 			throw new NotImplementedException();
+
+		}
+
+		public LoginInfo getUser(string username){
+
+			return db.UserInfo.Where(m => m.Username == username).FirstOrDefault();
 
 		}
 
