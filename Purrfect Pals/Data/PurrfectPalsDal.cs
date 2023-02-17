@@ -99,7 +99,7 @@ namespace Purrfect_Pals.Data{
             
 			IEnumerable<LoginInfo> isPasswordGood = GetUsers().Where(m => (!string.IsNullOrEmpty(m.Password) && m.Password.Contains(password))).ToList();
 
-            if(isUsernameGood.Count() < 0 && isPasswordGood.Count() < 0){
+            if(isUsernameGood.Count() > 0 && isPasswordGood.Count() > 0){
 
                 return true;
             
