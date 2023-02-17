@@ -47,11 +47,6 @@ namespace Purrfect_Pals.Controllers
             return View();
         }
 
-        public IActionResult Login() {
-
-            return View();
-        }
-
         [HttpGet]
 
         public IActionResult Signup() {
