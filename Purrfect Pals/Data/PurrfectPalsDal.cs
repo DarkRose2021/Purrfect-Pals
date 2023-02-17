@@ -87,6 +87,40 @@ namespace Purrfect_Pals.Data{
 
         }
 
-    }
+		public bool LoginCheck(string username, string password){
+		
+            if(username == null || password == null){
+
+                return false;
+            
+            }
+
+			IEnumerable<LoginInfo> isUsernameGood = GetUsers().Where(m => (!string.IsNullOrEmpty(m.Username) && m.Username.Contains(username))).ToList();
+            
+			IEnumerable<LoginInfo> isPasswordGood = GetUsers().Where(m => (!string.IsNullOrEmpty(m.Password) && m.Password.Contains(password))).ToList();
+
+            if(isUsernameGood.Count() < 0 && isPasswordGood.Count() < 0){
+
+                return true;
+            
+            }
+
+            return false;
+
+		}
+
+		IEnumerable<LoginInfo> GetUsers(){
+
+            return db.UserInfo.ToList();
+
+		}
+
+		IEnumerable<LoginInfo> IDateAccessLayer.GetUsers(){
+
+			throw new NotImplementedException();
+
+		}
+
+	}
 
 }

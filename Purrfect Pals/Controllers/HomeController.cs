@@ -80,6 +80,29 @@ namespace Purrfect_Pals.Controllers
         
         }
 
+        [HttpPost]
+
+        public IActionResult Login(LoginInfo l){ 
+
+            if (dal.LoginCheck(l.Username, l.Password) == true){
+
+                TempData["success"] = "Logged In!";
+
+                return RedirectToAction("Testing", "Home");
+
+            }else{
+                
+                //spit out bad read or something idk.
+
+                return View();
+
+            }
+        
+        }
+
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -33,6 +33,10 @@ namespace Purrfect_Pals.Interfaces{
 
         public LoginInfo GetUser(int? id);
 
+        IEnumerable<LoginInfo> GetUsers();
+
+        bool LoginCheck(string username, string password);
+
     }
 
 }
