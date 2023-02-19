@@ -13,7 +13,6 @@ if (document.getElementById("h3")) {
 	var h3 = document.getElementById("h3");
 }
 
-
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
 
