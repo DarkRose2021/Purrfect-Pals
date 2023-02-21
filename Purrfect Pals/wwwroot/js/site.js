@@ -36,16 +36,18 @@ function ToggleDarkMode() {
 	localStorage.setItem("dark", darkOn ? "true" : "false");
 
 	if (darkOn) {
-		if (document.getElementById("h3")) {
-			h3.classList.remove("h3LightMode");
-			h3.classList.add("h3Darkmode");
-		}
+		
 		logo.src = `assets/logoDark.png`;
 		nav.classList.remove("navbarLightMode");
 		nav.classList.remove("border-bottom");
 		body.classList.remove("lightmode");
 		h1.classList.remove("headerLightMode");
 
+
+		if (document.getElementById("h3")) {
+			h3.classList.remove("h3LightMode");
+			h3.classList.add("h3Darkmode");
+		}
 		if (a != null) {
 			a.classList.remove("linkLightMode");
 			a.classList.add("linkDarkMode");
