@@ -6,7 +6,6 @@ var logo = document.getElementById("logo");
 if (document.getElementById("h3")) {
 	var h3 = document.getElementById("h3");
 }
-
 if (document.getElementById("a")) {
 	var a = document.getElementById("a");
 }
@@ -37,7 +36,7 @@ function ToggleDarkMode() {
 
 	if (darkOn) {
 		
-		logo.src = `assets/logoDark.png`;
+		logo.src = `/assets/logoDark.png`;
 		nav.classList.remove("navbarLightMode");
 		nav.classList.remove("border-bottom");
 		body.classList.remove("lightmode");
@@ -87,7 +86,7 @@ function ToggleDarkMode() {
 			h3.classList.remove("h3Darkmode");
 			h3.classList.add("h3LightMode");
 		}
-		logo.src = `assets/logoLight.png`;
+		logo.src = `/assets/logoLight.png`;
 		nav.classList.add("navbarLightMode");
 		nav.classList.add("border-bottom");
 		body.classList.add("lightmode");
