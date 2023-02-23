@@ -33,6 +33,9 @@ if (document.getElementById("form1")) {
 if (document.getElementById("form2")) {
 	var f2 = document.getElementById("form2");
 }
+if (document.getElementById("profile")) {
+	var profile = document.getElementById("profile");
+}
 
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
@@ -90,6 +93,10 @@ function ToggleDarkMode() {
 			f2.classList.remove("formLightmode");
 			f2.classList.add("formDarkmode");
 		}
+		if (profile != null) {
+			profile.classList.remove("profileLightmode");
+			profile.classList.add("profileDarkmode");
+		}
 
 		nav.classList.add("navDarkMode");
 		nav.classList.add("borderDarkMode");
@@ -142,6 +149,10 @@ function ToggleDarkMode() {
 		if (f2 != null) {
 			f2.classList.add("formLightmode");
 			f2.classList.remove("formDarkmode");
+		}
+		if (profile != null) {
+			profile.classList.add("profileLightmode");
+			profile.classList.remove("profileDarkmode");
 		}
 
 		nav.classList.remove("navDarkMode");
