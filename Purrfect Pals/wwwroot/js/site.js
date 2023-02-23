@@ -1,18 +1,32 @@
 ﻿var body = document.body;
 var nav = document.getElementById("navbar");
 var h1 = document.getElementById("header");
-var a = document.getElementById("a");
-var a2 = document.getElementById("a2");
-var a3 = document.getElementById("a3");
-var a4 = document.getElementById("a4");
-var a5 = document.getElementById("a5");
-var a6 = document.getElementById("a6");
-var a7 = document.getElementById("a7");
+var logo = document.getElementById("logo");
 
 if (document.getElementById("h3")) {
 	var h3 = document.getElementById("h3");
 }
-
+if (document.getElementById("a")) {
+	var a = document.getElementById("a");
+}
+if (document.getElementById("a2")) {
+	var a2 = document.getElementById("a2");
+}
+if (document.getElementById("a3")) {
+	var a3 = document.getElementById("a3");
+}
+if (document.getElementById("a4")) {
+	var a4 = document.getElementById("a4");
+}
+if (document.getElementById("a5")) {
+	var a5 = document.getElementById("a5");
+}
+if (document.getElementById("a6")) {
+	var a6 = document.getElementById("a6");
+}
+if (document.getElementById("a7")) {
+	var a7 = document.getElementById("a7");
+}
 
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
@@ -21,67 +35,96 @@ function ToggleDarkMode() {
 	localStorage.setItem("dark", darkOn ? "true" : "false");
 
 	if (darkOn) {
-		if (document.getElementById("h3")) {
-			h3.classList.remove("h3LightMode");
-			h3.classList.add("h3Darkmode");
-		}
-
+		
+		logo.src = `/assets/logoDark.png`;
 		nav.classList.remove("navbarLightMode");
 		nav.classList.remove("border-bottom");
 		body.classList.remove("lightmode");
 		h1.classList.remove("headerLightMode");
-		
-		a.classList.remove("linkLightMode");
-		a2.classList.remove("linkLightMode");
-		a3.classList.remove("linkLightMode");
-		a4.classList.remove("linkLightMode");
-		a5.classList.remove("linkLightMode");
-		a6.classList.remove("linkLightMode");
-		a7.classList.remove("linkLightMode");
+
+
+		if (document.getElementById("h3")) {
+			h3.classList.remove("h3LightMode");
+			h3.classList.add("h3Darkmode");
+		}
+		if (a != null) {
+			a.classList.remove("linkLightMode");
+			a.classList.add("linkDarkMode");
+		}
+		if (a2 != null) {
+			a2.classList.remove("linkLightMode");
+			a2.classList.add("linkDarkMode");
+		}
+		if (a3 != null) {
+			a3.classList.remove("linkLightMode");
+			a3.classList.add("linkDarkMode");
+		}
+		if (a4 != null) {
+			a4.classList.remove("linkLightMode");
+			a4.classList.add("linkDarkMode");
+		}
+		if (a5 != null) {
+			a5.classList.remove("linkLightMode");
+			a5.classList.add("linkDarkMode");
+		}
+		if (a6 != null) {
+			a6.classList.remove("linkLightMode");
+			a6.classList.add("linkDarkMode");
+		}
+		if (a7 != null) {
+			a7.classList.remove("linkLightMode");
+			a7.classList.add("linkDarkMode");
+		}
 
 		nav.classList.add("navDarkMode");
 		nav.classList.add("borderDarkMode");
 		body.classList.add("darkmode");
 		h1.classList.add("headerDarkMode");
 		
-		a.classList.add("linkDarkMode");
-		a2.classList.add("linkDarkMode");
-		a3.classList.add("linkDarkMode");
-		a4.classList.add("linkDarkMode");
-		a5.classList.add("linkDarkMode");
-		a6.classList.add("linkDarkMode");
-		a7.classList.add("linkDarkMode");
 	} else {
 		if (document.getElementById("h3")) {
 			h3.classList.remove("h3Darkmode");
 			h3.classList.add("h3LightMode");
 		}
-
+		logo.src = `/assets/logoLight.png`;
 		nav.classList.add("navbarLightMode");
 		nav.classList.add("border-bottom");
 		body.classList.add("lightmode");
 		h1.classList.add("headerLightMode");
 		
-		a.classList.add("linkLightMode");
-		a2.classList.add("linkLightMode");
-		a3.classList.add("linkLightMode");
-		a4.classList.add("linkLightMode");
-		a5.classList.add("linkLightMode");
-		a6.classList.add("linkLightMode");
-		a7.classList.add("linkLightMode");
+		if (a != null) {
+			a.classList.add("linkLightMode");
+			a.classList.remove("linkDarkMode");
+		}
+		if (a2 != null) {
+			a2.classList.add("linkLightMode");
+			a2.classList.remove("linkDarkMode");
+		}
+		if (a3 != null) {
+			a3.classList.add("linkLightMode");
+			a3.classList.remove("linkDarkMode");
+		}
+		if (a4 != null) {
+			a4.classList.add("linkLightMode");
+			a4.classList.remove("linkDarkMode");
+		}
+		if (a5 != null) {
+			a5.classList.add("linkLightMode");
+			a5.classList.remove("linkDarkMode");
+		}
+		if (a6 != null) {
+			a6.classList.add("linkLightMode");
+			a6.classList.remove("linkDarkMode");
+		}
+		if (a7 != null) {
+			a7.classList.add("linkLightMode");
+			a7.classList.remove("linkDarkMode");
+		}
 
 		nav.classList.remove("navDarkMode");
 		nav.classList.remove("borderDarkMode");
 		body.classList.remove("darkmode");
 		h1.classList.remove("headerDarkMode");
-		
-		a.classList.remove("linkDarkMode");
-		a2.classList.remove("linkDarkMode");
-		a3.classList.remove("linkDarkMode");
-		a4.classList.remove("linkDarkMode");
-		a5.classList.remove("linkDarkMode");
-		a6.classList.remove("linkDarkMode");
-		a7.classList.remove("linkDarkMode");
 	}
 
 }
