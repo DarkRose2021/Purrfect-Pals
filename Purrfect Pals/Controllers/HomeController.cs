@@ -14,8 +14,6 @@ namespace Purrfect_Pals.Controllers
     public class HomeController : Controller
     {
 
-        int loggedInUserID = 2;
-
         IDateAccessLayer dal;
 
         public HomeController(IDateAccessLayer indal) {
@@ -38,7 +36,6 @@ namespace Purrfect_Pals.Controllers
 
             return View();
         }
-        public IActionResult ProfilePage(){
         
             return View();
         
@@ -89,8 +86,6 @@ namespace Purrfect_Pals.Controllers
         public IActionResult Login(LoginInfo l){ 
 
             if (dal.LoginCheck(l.Username, l.Password) == true){
-
-                loggedInUserID = dal.getUser(l.Username).Id;
 
                 TempData["success"] = "Logged In!";
 
