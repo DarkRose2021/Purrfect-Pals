@@ -12,7 +12,7 @@ namespace Purrfect_Pals.Interfaces{
         //should take in all the parts and add to user database, creates the bio
         //to hookup the Id's together
 
-        void AddUserBio(PetBio userBio, int Id);
+        //void AddUserBio(PetBio userBio);
 
         void AddUser(LoginInfo userInfo);
         
@@ -25,7 +25,7 @@ namespace Purrfect_Pals.Interfaces{
         //Where you add the bio, also works as an edit
         //pretty simple, it should be able to go and edit the correct user's bio
 
-        void EditBio(int Id, PetBio bio);
+        void EditBio(PetBio bio);
 
         //finds the bio and user for editing and deleting purposes
 

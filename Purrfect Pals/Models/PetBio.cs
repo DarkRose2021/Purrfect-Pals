@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Purrfect_Pals.Models{
 
@@ -13,7 +14,7 @@ namespace Purrfect_Pals.Models{
 
         public int Id { get; set; }
 
-        [MaxLength(30)]
+		[MaxLength(30)]
 
         public string PetName { get; set; }
 

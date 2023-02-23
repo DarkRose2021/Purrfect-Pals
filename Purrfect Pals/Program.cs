@@ -18,6 +18,8 @@ namespace Purrfect_Pals{
 
             builder.Services.AddTransient<IDateAccessLayer, PurrfectPalsDal>();
 
+            builder.Services.AddSession();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -39,6 +41,8 @@ namespace Purrfect_Pals{
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 

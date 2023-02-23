@@ -31,7 +31,7 @@ namespace Purrfect_Pals.Data{
 
         }
 
-        public void EditBio(int Id, PetBio bio){
+        public void EditBio(PetBio bio){
 
             db.Bio.Update(bio);
 
