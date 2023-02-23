@@ -27,6 +27,15 @@ if (document.getElementById("a6")) {
 if (document.getElementById("a7")) {
 	var a7 = document.getElementById("a7");
 }
+if (document.getElementById("botmsg")) {
+	var botmsg = document.getElementById("botmsg");
+}
+if (document.getElementById("option1")) {
+	var option1 = document.getElementById("option1");
+}
+if (document.getElementById("option2")) {
+	var option2 = document.getElementById("option2");
+}
 
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
@@ -133,4 +142,10 @@ var darkOn = false;
 function toggle() {
 	darkOn = !darkOn;
 	ToggleDarkMode();
+}
+
+function hidechat() {
+	botmsg.style.display = none;
+	option1.style.display = none;
+	option2.style.display = none;
 }
