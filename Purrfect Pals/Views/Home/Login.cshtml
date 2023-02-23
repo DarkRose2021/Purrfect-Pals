@@ -1,18 +1,18 @@
 ﻿@model LoginInfo
 
-<div class="form">
+<h1 id="header" class="headerLightMode">Login</h1>
 
-	<h1 id="header" class="headerLightMode">Login</h1>
+<div class="form">
 
 	<form asp-controller="Home" asp-action="Login" method="post">
 
 		<label asp-for="Username"></label>
 
-		<input asp-for="Username" class="form-control" />
+		<input asp-for="Username" /><br />
 
 		<label asp-for="Password"></label>
 
-		<input asp-for="Password" class="form-control" />
+		<input asp-for="Password" /><br />
 
 		<button type="submit">Login</button>
 
