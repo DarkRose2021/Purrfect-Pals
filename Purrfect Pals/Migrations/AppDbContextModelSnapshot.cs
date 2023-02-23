@@ -31,7 +31,8 @@ namespace Purrfect_Pals.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(27)
+                        .HasColumnType("nvarchar(27)");
 
                     b.Property<string>("PetName")
                         .IsRequired()
@@ -39,8 +40,7 @@ namespace Purrfect_Pals.Migrations
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -56,18 +56,17 @@ namespace Purrfect_Pals.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Biography")
+                        .IsRequired()
                         .HasMaxLength(360)
                         .HasColumnType("nvarchar(360)");
 
                     b.Property<string>("Dislikes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Likes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PetAge")

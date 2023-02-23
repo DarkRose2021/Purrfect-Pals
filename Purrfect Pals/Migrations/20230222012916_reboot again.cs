@@ -4,7 +4,7 @@
 
 namespace Purrfect_Pals.Migrations
 {
-    public partial class Initialdbcreation : Migration
+    public partial class rebootagain : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,10 +15,10 @@ namespace Purrfect_Pals.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PetName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Biography = table.Column<string>(type: "nvarchar(360)", maxLength: 360, nullable: true),
+                    Biography = table.Column<string>(type: "nvarchar(360)", maxLength: 360, nullable: false),
                     PetAge = table.Column<int>(type: "int", nullable: false),
-                    Likes = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Dislikes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Likes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Dislikes = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -32,8 +32,8 @@ namespace Purrfect_Pals.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Username = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(27)", maxLength: 27, nullable: false),
                     PetName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

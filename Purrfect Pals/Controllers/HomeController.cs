@@ -9,14 +9,14 @@ using Purrfect_Pals.Data;
 using Purrfect_Pals.Models;
 using Purrfect_Pals.Interfaces;
 
+
 namespace Purrfect_Pals.Controllers
 {
+
     public class HomeController : Controller
     {
 
-        int loggedInUserID = 2;
-
-        IDateAccessLayer dal;
+		IDateAccessLayer dal;
 
         public HomeController(IDateAccessLayer indal) {
 
@@ -33,27 +33,35 @@ namespace Purrfect_Pals.Controllers
         }*/
 
         [HttpGet]
-        public IActionResult Index()
-        {
+        public IActionResult Index(){
+
+            //example grab
+
+            /*string s;
+
+            HttpContext.Session.SetString("Id", "grab info here");//get info
+
+            s = HttpContext.Session.GetString("Id");*/
 
             return View();
         }
-        public IActionResult ProfilePage(){
+
+        public IActionResult ProfilePage(PetBio bio){
         
-            return View();
+            return View(bio);
         
         }
 
-		public IActionResult Login()
-		{
+		public IActionResult Login(){
 
 			return View();
 
 		}
 
-		public IActionResult Matches()
-        {
+		public IActionResult Matches(){
+
             return View();
+        
         }
 
         [HttpGet]
@@ -74,7 +82,7 @@ namespace Purrfect_Pals.Controllers
 
                 TempData["success"] = "User Added";
 
-                return RedirectToAction("ProfilePage", "Home");
+                return RedirectToAction("Index", "Home");
 
             }else{
 
@@ -90,11 +98,11 @@ namespace Purrfect_Pals.Controllers
 
             if (dal.LoginCheck(l.Username, l.Password) == true){
 
-                loggedInUserID = dal.getUser(l.Username).Id;
+				TempData["success"] = "Logged In!";
 
-                TempData["success"] = "Logged In!";
+				HttpContext.Session.SetString("Id", l.Id.ToString());//get info
 
-                return RedirectToAction("EditBio", "Home");
+				return RedirectToAction("EditBio", "Home");
 
             }else{
                 
@@ -116,11 +124,17 @@ namespace Purrfect_Pals.Controllers
 
         public IActionResult EditBio(PetBio bio){
 
-                bio.Image = MagicallyGetCat();
+            bio.Image = MagicallyGetCat();
 
-                dal.EditBio(loggedInUserID, bio);
+            string id = HttpContext.Session.GetString("Id");
+            
+			if (bio.Id == int.Parse(id)) {
 
-                return RedirectToAction("UserBio", "Home");
+                dal.EditBio(bio);
+
+            }
+
+            return RedirectToAction("ProfilePage", bio);
 
         }
 

@@ -31,11 +31,7 @@ namespace Purrfect_Pals.Data{
 
         }
 
-        public void EditBio(int Id, PetBio bio){
-
-            //figure out how the actual fuck to edit the right one by Id.
-
-            db.Bio.SkipWhile(m => m.Id != Id);
+        public void EditBio(PetBio bio){
 
             db.Bio.Update(bio);
 

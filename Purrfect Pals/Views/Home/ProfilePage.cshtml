@@ -1,18 +1,16 @@
 ﻿
-<h1 id="header" class="headerLightMode">[Pet Name]</h1>
+@model PetBio
+
+<h1 id="header" class="headerLightMode">@Model.PetName</h1>
 
 <div class="profile">
 	<div>
-		<img src="dsa" width="500" />
+		<img src="@Model.Image" width="500" />
 	</div>
 	<div>
-		<p><b>Age: </b> [pet age]</p>
-		<p><b>Breed: </b> [pet breed]</p>
-		<p><b>Likes: </b> [pet likes]</p>
-		<p><b>Dislikes: </b> [pet dislikes]</p>
-		<p><b>Bio: </b> [pet bio]</p>
-		<p><b>My Owner's name: </b> [owner name]</p>
-		<p><b>My Owner's Email: </b> [owner email]</p>
-		<a class="btn">Edit Profile</a>
+		<p><b>Age: </b> @Model.PetAge</p>
+		<p><b>Likes: </b> @Model.Likes</p>
+		<p><b>Dislikes: </b> @Model.Dislikes</p>
+		<p><b>Bio: </b> @Model.Biography</p>
 	</div>
 </div>
