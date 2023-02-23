@@ -27,6 +27,12 @@ if (document.getElementById("a6")) {
 if (document.getElementById("a7")) {
 	var a7 = document.getElementById("a7");
 }
+if (document.getElementById("form1")) {
+	var f1 = document.getElementById("form1");
+}
+if (document.getElementById("form2")) {
+	var f2 = document.getElementById("form2");
+}
 
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
@@ -76,6 +82,15 @@ function ToggleDarkMode() {
 			a7.classList.add("linkDarkMode");
 		}
 
+		if (f1 != null) {
+			f1.classList.remove("formLightmode");
+			f1.classList.add("formDarkmode");
+		}
+		if (f2 != null) {
+			f2.classList.remove("formLightmode");
+			f2.classList.add("formDarkmode");
+		}
+
 		nav.classList.add("navDarkMode");
 		nav.classList.add("borderDarkMode");
 		body.classList.add("darkmode");
@@ -119,6 +134,14 @@ function ToggleDarkMode() {
 		if (a7 != null) {
 			a7.classList.add("linkLightMode");
 			a7.classList.remove("linkDarkMode");
+		}
+		if (f1 != null) {
+			f1.classList.add("formLightmode");
+			f1.classList.remove("formDarkmode");
+		}
+		if (f2 != null) {
+			f2.classList.add("formLightmode");
+			f2.classList.remove("formDarkmode");
 		}
 
 		nav.classList.remove("navDarkMode");

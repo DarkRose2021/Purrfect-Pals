@@ -23,6 +23,8 @@
 	--dm-link-hover: #6D5F63;
 	--dm-link-active: #5E4F53;
 	--dm-h3: #46595F;
+	--dm-form-bg: #77917B;
+	--dm-form-shadow: #6C8470;
 }
 
 html {
@@ -78,7 +80,19 @@ body {
 		color: var(--link-active);
 	}
 
+.formLightmode {
+	background-color: var(--navbar);
+	border: solid 1px #90AF94;
+	box-shadow: 5px 5px #839F87;
+}
+
 /*DarkMode colors*/
+.formDarkmode {
+	background-color: var(--dm-form-bg);
+	border: solid 1px #839F87;
+	box-shadow: 5px 5px #6C8470;
+}
+
 .darkmode {
 	background-color: var(--dark-mode-bg);
 	color: var(--dark-mode-txt-color);
@@ -183,13 +197,12 @@ footer {
 
 .form {
 	width: fit-content;
-	background-color: var(--navbar);
+	
 	padding: 2%;
 	margin: 3%;
 	margin-left: 38%;
 	border-radius: 5px;
-	border: solid 1px #90AF94;
-	box-shadow: 5px 5px #839F87;
+	
 }
 
 .form button{
@@ -198,7 +211,7 @@ footer {
 	margin: 2%;
 }
 
-input {
+.form input {
 	border: none;
 	border-radius: 3px;
 	background-color: #839F87;
