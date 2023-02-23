@@ -185,7 +185,7 @@ namespace Purrfect_Pals.Controllers
             return result[0]["url"].ToString();
         }
 
-        public string MagicllyGetCatBio() { 
+       /* public string MagicllyGetCatBio() { 
         
             JsonTextReader reader = new StringReader("Data/bios/catbios.json");
             String json = reader.ReadToEnd();
@@ -211,7 +211,7 @@ namespace Purrfect_Pals.Controllers
             Random random = new Random();
             string bioID = "B" + random.Next(1, 40).ToString();
             return result[0][bioID].ToString();
-        }
+        }*/
        
     }
 }
