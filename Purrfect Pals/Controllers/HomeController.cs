@@ -166,9 +166,37 @@ namespace Purrfect_Pals.Controllers
             reader.Close();
 
             JArray result = JArray.Parse(json);
-            ;
+            
 
             return result[0]["url"].ToString();
+        }
+
+        public string MagicllyGetCatBio() { 
+        
+            JsonTextReader reader = new StringReader("Data/bios/catbios.json");
+            String json = reader.ReadToEnd();
+            data.Close();
+            reader.Close();
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "B" + random.Next(1, 37).ToString();
+            return result[0][bioID].ToString();
+        }
+
+        public string MagicllyGetDogBio() { 
+        
+            JsonTextReader reader = new StringReader("Data/bios/dogbios.json");
+            String json = reader.ReadToEnd();
+            data.Close();
+            reader.Close();
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "B" + random.Next(1, 40).ToString();
+            return result[0][bioID].ToString();
         }
        
     }
