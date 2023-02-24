@@ -77,6 +77,13 @@ namespace Purrfect_Pals.Controllers
 
         }
 
+        public IActionResult Chat()
+        {
+
+            return View();
+
+        }
+
         [HttpGet]
 
         public IActionResult Signup()

@@ -36,6 +36,9 @@ if (document.getElementById("form2")) {
 if (document.getElementById("profile")) {
 	var profile = document.getElementById("profile");
 }
+if (document.getElementById("match")) {
+	var match = document.getElementById("match");
+}
 
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
@@ -56,7 +59,7 @@ function ToggleDarkMode() {
 			h3.classList.remove("h3LightMode");
 			h3.classList.add("h3Darkmode");
 		}
-		if (a != null) {
+		if (a != null ) {
 			a.classList.remove("linkLightMode");
 			a.classList.add("linkDarkMode");
 		}
@@ -96,6 +99,10 @@ function ToggleDarkMode() {
 		if (profile != null) {
 			profile.classList.remove("profileLightmode");
 			profile.classList.add("profileDarkmode");
+		}
+		if (match != null) {
+			match.classList.remove("profileLightmode");
+			match.classList.add("profileDarkmode");
 		}
 
 		nav.classList.add("navDarkMode");
@@ -153,6 +160,10 @@ function ToggleDarkMode() {
 		if (profile != null) {
 			profile.classList.add("profileLightmode");
 			profile.classList.remove("profileDarkmode");
+		}
+		if (match != null) {
+			match.classList.add("profileLightmode");
+			match.classList.remove("profileDarkmode");
 		}
 
 		nav.classList.remove("navDarkMode");
