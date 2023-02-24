@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using Purrfect_Pals.Interfaces;
-using Purrfect_Pals.Models;
-using System.Diagnostics;
-using System.Net;
+﻿using System.IO;
 
 
 namespace Purrfect_Pals.Controllers
