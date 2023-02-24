@@ -124,7 +124,6 @@ namespace Purrfect_Pals.Controllers
 
         }
 
-        [HttpGet]
         public IActionResult EditBio()
         {
 
@@ -200,33 +199,33 @@ namespace Purrfect_Pals.Controllers
             return result[0]["url"].ToString();
         }
 
-        /* public string MagicllyGetCatBio() { 
+        public string MagicllyGetCatBio()
+        {
 
-             JsonTextReader reader = new StringReader("Data/bios/catbios.json");
-             String json = reader.ReadToEnd();
-             data.Close();
-             reader.Close();
+            string path = "Data/bios/catbios.json";
 
-             JArray result = JArray.Parse(json);
+            string json = System.IO.File.ReadAllText(path);
 
-             Random random = new Random();
-             string bioID = "B" + random.Next(1, 37).ToString();
-             return result[0][bioID].ToString();
-         }
+            JArray result = JArray.Parse(json);
 
-         public string MagicllyGetDogBio() { 
+            Random random = new Random();
+            string bioID = "b" + random.Next(1, 37).ToString();
+            return result[0][bioID].ToString();
+        }
 
-             JsonTextReader reader = new StringReader("Data/bios/dogbios.json");
-             String json = reader.ReadToEnd();
-             data.Close();
-             reader.Close();
+        public string MagicllyGetDogBio()
+        {
 
-             JArray result = JArray.Parse(json);
+            string path = "Data/bios/dogbios.json";
 
-             Random random = new Random();
-             string bioID = "B" + random.Next(1, 40).ToString();
-             return result[0][bioID].ToString();
-         }*/
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "b" + random.Next(1, 40).ToString();
+            return result[0][bioID].ToString();
+        }
 
     }
 }
