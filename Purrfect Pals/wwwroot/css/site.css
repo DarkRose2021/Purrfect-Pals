@@ -23,6 +23,11 @@
 	--dm-link-hover: #6D5F63;
 	--dm-link-active: #5E4F53;
 	--dm-h3: #46595F;
+	--dm-form-bg: #77917B;
+	--dm-form-shadow: #6C8470;
+	--dm-blue: #5D8C85;
+	--dm-blue-border: #557F79;
+	--dm-blue-shadow: #4D736E;
 }
 
 html {
@@ -78,7 +83,31 @@ body {
 		color: var(--link-active);
 	}
 
+.formLightmode {
+	background-color: var(--navbar);
+	border: solid 1px #90AF94;
+	box-shadow: 5px 5px #839F87;
+}
+
+.profileLightmode {
+	background-color: var(--blue);
+	border: solid 1px #669A92;
+	box-shadow: 5px 5px var(--dm-blue);
+}
+
 /*DarkMode colors*/
+.profileDarkmode {
+	background-color: var(--dm-blue);
+	border: solid 1px var(--dm-blue-border);
+	box-shadow: 5px 5px var(--dm-blue-shadow);
+}
+
+.formDarkmode {
+	background-color: var(--dm-form-bg);
+	border: solid 1px #839F87;
+	box-shadow: 5px 5px #6C8470;
+}
+
 .darkmode {
 	background-color: var(--dark-mode-bg);
 	color: var(--dark-mode-txt-color);
@@ -165,11 +194,11 @@ footer {
 	flex-direction: row;
 	margin: 1%;
 	padding: 1.5%;
-	background-color: var(--blue);
+	
 	margin-left: 20%;
-	border: solid 1px #669A92;
+	
 	border-radius: 5px;
-	box-shadow: 5px 5px #5D8C85;
+	
 }
 
 .profile div{
@@ -183,13 +212,12 @@ footer {
 
 .form {
 	width: fit-content;
-	background-color: var(--navbar);
+	
 	padding: 2%;
 	margin: 3%;
 	margin-left: 38%;
 	border-radius: 5px;
-	border: solid 1px #90AF94;
-	box-shadow: 5px 5px #839F87;
+	
 }
 
 .form button{
@@ -198,7 +226,7 @@ footer {
 	margin: 2%;
 }
 
-input {
+.form input {
 	border: none;
 	border-radius: 3px;
 	background-color: #839F87;

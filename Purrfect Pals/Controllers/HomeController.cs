@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using Purrfect_Pals.Data;
 using Purrfect_Pals.Models;
 using Purrfect_Pals.Interfaces;
+using System.IO;
 
 
 namespace Purrfect_Pals.Controllers
@@ -185,31 +186,29 @@ namespace Purrfect_Pals.Controllers
             return result[0]["url"].ToString();
         }
 
-        /*public string MagicllyGetCatBio() { 
-        
-            JsonTextReader reader = new StringReader("Data/bios/catbios.json");
-            String json = reader.ReadToEnd();
-            data.Close();
-            reader.Close();
+        public string MagicllyGetCatBio() {
+
+            string path = "Data/bios/catbios.json";
+
+            string json = System.IO.File.ReadAllText(path);
 
             JArray result = JArray.Parse(json);
 
             Random random = new Random();
-            string bioID = "B" + random.Next(1, 37).ToString();
+            string bioID = "b" + random.Next(1, 37).ToString();
             return result[0][bioID].ToString();
         }
 
-        public string MagicllyGetDogBio() { 
-        
-            JsonTextReader reader = new StringReader("Data/bios/dogbios.json");
-            String json = reader.ReadToEnd();
-            data.Close();
-            reader.Close();
+        public string MagicllyGetDogBio() {
+
+            string path = "Data/bios/dogbios.json";
+
+            string json = System.IO.File.ReadAllText(path);
 
             JArray result = JArray.Parse(json);
 
             Random random = new Random();
-            string bioID = "B" + random.Next(1, 40).ToString();
+            string bioID = "b" + random.Next(1, 40).ToString();
             return result[0][bioID].ToString();
         }*/
        
