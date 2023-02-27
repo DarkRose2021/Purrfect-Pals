@@ -261,7 +261,7 @@ namespace Purrfect_Pals.Controllers
 
         public string GetDisLike() {
 
-            string path = "Data/bios/dislike.json";
+            string path = "Data/bios/dislikes.json";
 
             string json = System.IO.File.ReadAllText(path);
 
