@@ -211,6 +211,32 @@ namespace Purrfect_Pals.Controllers
             string bioID = "b" + random.Next(1, 40).ToString();
             return result[0][bioID].ToString();
         }
+
+        public string GetLike() {
+
+            string path = "Data/bios/like.json";
+
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "b" + random.Next(1, 40).ToString();
+            return result[0][bioID].ToString();
+        }
+
+        public string GetDisLike() {
+
+            string path = "Data/bios/dislike.json";
+
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "b" + random.Next(1, 40).ToString();
+            return result[0][bioID].ToString();
+        }
        
     }
 }
