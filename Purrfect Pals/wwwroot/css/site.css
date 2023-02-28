@@ -242,11 +242,10 @@ footer {
 }
 
 .userchoices {
-
-	position: absolute;
-	bottom: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .userchoices button{
-	margin-left: 30%;
 }
