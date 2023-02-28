@@ -221,10 +221,6 @@ namespace Purrfect_Pals.Controllers{
 
             }
 
-            string s = "";
-
-            return s;
-        
         }
 
         public string MagicallyGetCat() {
