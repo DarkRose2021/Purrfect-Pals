@@ -1,4 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using Purrfect_Pals.Interfaces;
+using Purrfect_Pals.Models;
+using System.Diagnostics;
+using System.Net;
+
+/*using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
 using System.Diagnostics;
 using System.Net;
@@ -8,16 +15,17 @@ using Newtonsoft.Json.Linq;
 using Purrfect_Pals.Data;
 using Purrfect_Pals.Models;
 using Purrfect_Pals.Interfaces;
-using System.IO;
+using System.IO;*/
 
 
 namespace Purrfect_Pals.Controllers{
 
     public class HomeController : Controller{
 
-		IDateAccessLayer dal;
+        IDateAccessLayer dal;
 
-        public HomeController(IDateAccessLayer indal) {
+        public HomeController(IDateAccessLayer indal)
+        {
 
             dal = indal;
 
@@ -33,8 +41,6 @@ namespace Purrfect_Pals.Controllers{
 
         [HttpGet]
 
-        public IActionResult Index(){
-
             //example grab
 
             /*string s;
@@ -46,27 +52,38 @@ namespace Purrfect_Pals.Controllers{
             return View();
         }
 
-        public IActionResult ProfilePage(PetBio bio){
-        
+        public IActionResult ProfilePage(PetBio bio)
+        {
+
             return View(bio);
-        
+
         }
 
-		public IActionResult Login(){
-
-			return View();
-
-		}
-
-		public IActionResult Matches(){
+        public IActionResult Login()
+        {
 
             return View();
-        
+
+        }
+
+        public IActionResult Matches()
+        {
+
+            return View();
+
+        }
+
+        public IActionResult Chat()
+        {
+
+            return View();
+
         }
 
         [HttpGet]
 
-        public IActionResult Signup() {
+        public IActionResult Signup()
+        {
 
             return View();
 
@@ -74,9 +91,11 @@ namespace Purrfect_Pals.Controllers{
 
         [HttpPost]
 
-        public IActionResult Signup(LoginInfo l){ 
-        
-            if (ModelState.IsValid){
+        public IActionResult Signup(LoginInfo l)
+        {
+
+            if (ModelState.IsValid)
+            {
 
                 dal.AddUser(l); // adds user to database 
 
@@ -84,51 +103,60 @@ namespace Purrfect_Pals.Controllers{
 
                 return RedirectToAction("Index", "Home");
 
-            }else{
+            }
+            else
+            {
 
                 return View();
 
             }
-        
+
         }
 
         [HttpPost]
 
-        public IActionResult Login(LoginInfo l){ 
+        public IActionResult Login(LoginInfo l)
+        {
 
-            if (dal.LoginCheck(l.Username, l.Password) == true){
+            if (dal.LoginCheck(l.Username, l.Password) == true)
+            {
 
-				TempData["success"] = "Logged In!";
+                TempData["success"] = "Logged In!";
 
-				HttpContext.Session.SetString("Id", l.Id.ToString());//get info
+                HttpContext.Session.SetString("Id", l.Id.ToString());//get info
 
-				return RedirectToAction("EditBio", "Home");
+                return RedirectToAction("EditBio", "Home");
 
-            }else{
-                
+            }
+            else
+            {
+
                 //spit out bad read or something idk.
 
                 return View();
 
             }
-        
+
         }
 
-        public IActionResult EditBio(){ 
-        
+        public IActionResult EditBio()
+        {
+
             return View();
-        
+
         }
 
         [HttpPost]
 
-        public IActionResult EditBio(PetBio bio){
+        public IActionResult EditBio(PetBio bio)
+        {
 
             bio.Image = MagicallyGetCat();
 
             string id = HttpContext.Session.GetString("Id");
-            
-			if (bio.Id == int.Parse(id)) {
+
+            if (bio.Id == int.Parse(id))
+            {
 
                 dal.EditBio(bio);
 
@@ -163,8 +191,6 @@ namespace Purrfect_Pals.Controllers{
 
                 ai.Username = "bot" + ammount.ToString();
 
-                ai.Password = "password" + ammount.ToString();
-
                 petname = GetRadomName();
 
 				ai.PetName = petname;
@@ -193,16 +219,9 @@ namespace Purrfect_Pals.Controllers{
 
                 dal.EditBio(aiBio);
 
-
             }
 
-
-
-
-
-
             string s = "";
-
 
             return s;
         
@@ -247,12 +266,14 @@ namespace Purrfect_Pals.Controllers{
             reader.Close();
 
             JArray result = JArray.Parse(json);
-            
+
+
             return result[0]["url"].ToString();
 
         }
 
-        public string MagicllyGetCatBio() {
+        public string MagicllyGetCatBio()
+        {
 
             string path = "Data/bios/catbios.json";
 
@@ -298,6 +319,32 @@ namespace Purrfect_Pals.Controllers{
         
             return result[0][bioID].ToString();
         
+        }
+
+        public string GetLike() {
+
+            string path = "Data/bios/like.json";
+
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "b" + random.Next(1, 40).ToString();
+            return result[0][bioID].ToString();
+        }
+
+        public string GetDisLike() {
+
+            string path = "Data/bios/dislikes.json";
+
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            Random random = new Random();
+            string bioID = "b" + random.Next(1, 40).ToString();
+            return result[0][bioID].ToString();
         }
        
     }
