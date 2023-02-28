@@ -41,6 +41,8 @@ namespace Purrfect_Pals.Controllers{
 
         [HttpGet]
 
+        public IActionResult Index(){
+
             //example grab
 
             /*string s;
@@ -48,6 +50,8 @@ namespace Purrfect_Pals.Controllers{
             HttpContext.Session.SetString("Id", "grab info here");//get info
 
             s = HttpContext.Session.GetString("Id");*/
+
+            //createAiUsers(1, "allen", "TotallyStrongPasswordBro");
 
             return View();
         }
@@ -148,15 +152,13 @@ namespace Purrfect_Pals.Controllers{
 
         [HttpPost]
 
-        public IActionResult EditBio(PetBio bio)
-        {
+        public IActionResult EditBio(PetBio bio){
 
             bio.Image = MagicallyGetCat();
 
             string id = HttpContext.Session.GetString("Id");
 
-            if (bio.Id == int.Parse(id))
-            {
+            if (bio.Id == int.Parse(id)){
 
                 dal.EditBio(bio);
 
@@ -176,7 +178,7 @@ namespace Purrfect_Pals.Controllers{
 
         }
 
-        public string createAiUsers(int ammount){
+        public IActionResult createAiUsers() {
 
             LoginInfo ai = new LoginInfo();
 
@@ -186,40 +188,49 @@ namespace Purrfect_Pals.Controllers{
 
             Random random = new Random();
 
-            if (ammount != 0) {
+            int i = random.Next(1, 42000);
 
+            ai.Username = "aibot" + i.ToString();
 
-                ai.Username = "bot" + ammount.ToString();
+            ai.Password = "Password" + i.ToString();
 
-                petname = GetRadomName();
+            petname = GetRadomName();
 
-				ai.PetName = petname;
+            ai.PetName = petname;
 
-                dal.AddUser(ai);
+            dal.AddUser(ai);
 
-                aiBio.PetName = petname;
+            aiBio.PetName = petname;
 
-                aiBio.PetAge = random.Next(4,13);
+            aiBio.PetAge = random.Next(4, 13);
 
-                int animalChek = random.Next(0,1);
+            int animalChek = random.Next(0, 1);
 
-                if ( animalChek == 0){ //cat versions
+            if (animalChek == 0) { //cat versions
 
-                    aiBio.Biography = MagicllyGetCatBio();
+                aiBio.Biography = MagicllyGetCatBio();
 
-                    aiBio.Image = MagicallyGetCat();
-                
-                }else{
-                
-                    aiBio.Biography = MagicllyGetDogBio();
+                aiBio.Image = MagicallyGetCat();
 
-                    aiBio.Image = MagicallyGetDog();
-                
-                }
+            } else { //dog versions
+
+                aiBio.Biography = MagicllyGetDogBio();
+
+                aiBio.Image = MagicallyGetDog();
+
+            }
+
+            aiBio.Likes = GetLike();
+
+            aiBio.Dislikes = GetDisLike();
+
+            if (ai.Id == dal.getUserID(ai.Username, ai.Password)) {
 
                 dal.EditBio(aiBio);
 
             }
+
+            return RedirectToAction("Index");
 
         }
 
@@ -319,7 +330,7 @@ namespace Purrfect_Pals.Controllers{
 
         public string GetLike() {
 
-            string path = "Data/bios/like.json";
+            string path = "Data/bios/likes.json";
 
             string json = System.IO.File.ReadAllText(path);
 

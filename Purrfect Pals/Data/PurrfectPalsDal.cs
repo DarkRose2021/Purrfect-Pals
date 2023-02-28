@@ -127,6 +127,16 @@ namespace Purrfect_Pals.Data{
 
 		}
 
-	}
+        public int getUserID(string username, string password){
+
+            LoginInfo userholder = new LoginInfo();
+
+            userholder = GetUsers().Where(m => (m.Username == username) && m.Password == password).First();
+
+            return userholder.Id;
+
+        }
+
+    }
 
 }
