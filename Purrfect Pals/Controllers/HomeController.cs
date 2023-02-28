@@ -164,7 +164,6 @@ namespace Purrfect_Pals.Controllers
             JArray result = JArray.Parse(json);
 ;
 
-            return result[0]["url"].ToString();
         }
 
         public string MagicallyGetDog()
@@ -182,7 +181,6 @@ namespace Purrfect_Pals.Controllers
 
             JArray result = JArray.Parse(json);
             
-
             return result[0]["url"].ToString();
         }
 
