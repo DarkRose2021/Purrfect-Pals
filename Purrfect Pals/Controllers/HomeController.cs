@@ -11,11 +11,9 @@ using Purrfect_Pals.Interfaces;
 using System.IO;
 
 
-namespace Purrfect_Pals.Controllers
-{
+namespace Purrfect_Pals.Controllers{
 
-    public class HomeController : Controller
-    {
+    public class HomeController : Controller{
 
 		IDateAccessLayer dal;
 
@@ -34,6 +32,7 @@ namespace Purrfect_Pals.Controllers
         }*/
 
         [HttpGet]
+
         public IActionResult Index(){
 
             //example grab
@@ -142,46 +141,115 @@ namespace Purrfect_Pals.Controllers
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
+       
+        public IActionResult Error(){
+
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
         }
 
+        public string createAiUsers(int ammount){
 
+            LoginInfo ai = new LoginInfo();
+
+            PetBio aiBio = new PetBio();
+
+            string petname = "";
+
+            Random random = new Random();
+
+            if (ammount != 0) {
+
+
+                ai.Username = "bot" + ammount.ToString();
+
+                ai.Password = "password" + ammount.ToString();
+
+                petname = GetRadomName();
+
+				ai.PetName = petname;
+
+                dal.AddUser(ai);
+
+                aiBio.PetName = petname;
+
+                aiBio.PetAge = random.Next(4,13);
+
+                int animalChek = random.Next(0,1);
+
+                if ( animalChek == 0){ //cat versions
+
+                    aiBio.Biography = MagicllyGetCatBio();
+
+                    aiBio.Image = MagicallyGetCat();
+                
+                }else{
+                
+                    aiBio.Biography = MagicllyGetDogBio();
+
+                    aiBio.Image = MagicallyGetDog();
+                
+                }
+
+                dal.EditBio(aiBio);
+
+
+            }
+
+
+
+
+
+
+            string s = "";
+
+
+            return s;
+        
+        }
 
         public string MagicallyGetCat() {
 
             String url = "https://api.thecatapi.com/v1/images/search";
+
             WebClient client = new WebClient();
 
             Stream data = client.OpenRead(url);
+            
             StreamReader reader = new StreamReader(data); 
             
             String json = reader.ReadToEnd();
+            
             data.Close();
+            
             reader.Close();
 
             JArray result = JArray.Parse(json);
 ;
+            return result[0]["url"].ToString();
 
         }
 
-        public string MagicallyGetDog()
-        {
+        public string MagicallyGetDog(){
 
             String url = "https://api.thedogapi.com/v1/images/search";
+
             WebClient client = new WebClient();
 
             Stream data = client.OpenRead(url);
+            
             StreamReader reader = new StreamReader(data);
 
             String json = reader.ReadToEnd();
+            
             data.Close();
+            
             reader.Close();
 
             JArray result = JArray.Parse(json);
             
             return result[0]["url"].ToString();
+
         }
 
         public string MagicllyGetCatBio() {
@@ -193,11 +261,30 @@ namespace Purrfect_Pals.Controllers
             JArray result = JArray.Parse(json);
 
             Random random = new Random();
+
             string bioID = "b" + random.Next(1, 37).ToString();
+            
             return result[0][bioID].ToString();
+        
         }
 
-        public string MagicllyGetDogBio() {
+		public string GetRadomName(){
+
+			string path = "Data/bios/names.json";
+
+			string json = System.IO.File.ReadAllText(path);
+
+			JArray result = JArray.Parse(json);
+
+			Random random = new Random();
+			
+            string bioID = "b" + random.Next(1, 28).ToString();
+			
+            return result[0][bioID].ToString();
+		
+        }
+
+		public string MagicllyGetDogBio() {
 
             string path = "Data/bios/dogbios.json";
 
@@ -206,9 +293,12 @@ namespace Purrfect_Pals.Controllers
             JArray result = JArray.Parse(json);
 
             Random random = new Random();
+           
             string bioID = "b" + random.Next(1, 40).ToString();
+        
             return result[0][bioID].ToString();
-        }*/
+        
+        }
        
     }
 }
