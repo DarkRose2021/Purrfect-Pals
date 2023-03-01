@@ -353,6 +353,21 @@ namespace Purrfect_Pals.Controllers{
             string bioID = "b" + random.Next(1, 40).ToString();
             return result[0][bioID].ToString();
         }
-       
+
+        //type = out, in1, in2
+        //out is what we put out
+        //in1 and in2 are the two options to put in aka the buttons.
+        public string Chating(int randomVal_0to5, string type)
+        {
+
+            string path = "Data/bios/chats.json";
+
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            return result[randomVal_0to5][type].ToString();
+        }
+
     }
 }
