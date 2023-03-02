@@ -179,7 +179,7 @@ button, .btn {
 .center {
 	display: flex;
 	flex-direction: column;
-	align-content: center;
+	align-items: center;
 	justify-content: center;
 }
 
@@ -256,9 +256,41 @@ footer {
 .user {
 	background-color: var(--chat-color2);
 	color: var(--dark-mode-txt-color);
+	margin-left: 50%;
+	max-width: fit-content;
+	overflow: scroll;
+	padding: 1%;
+	border-radius: 5px;	
+	float: right;
 }
 
 .bot {
 	background-color: var(--chat-color1);
 	color: var(--dark-mode-txt-color);
+	margin-right: 50%;
+	max-width: fit-content;
+	overflow: scroll;
+	padding: 1%;
+	border-radius: 5px;
+}
+
+.match{
+	align-content: center;
+	text-align: center;
+	padding: 1%;
+	margin: 1%;
+	width: fit-content;
+	border-radius: 5px;
+}
+
+.match img{
+	border-radius: 5px;
+}
+
+.chats {
+	height: 30em;
+	background-color: var(--blue);
+	padding: 2%;
+	border-radius: 5px;
+	width: 900px; 
 }
