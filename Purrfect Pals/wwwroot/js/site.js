@@ -39,6 +39,9 @@ if (document.getElementById("profile")) {
 if (document.getElementById("match")) {
 	var match = document.getElementById("match");
 }
+if (document.getElementById("bio")) {
+	var bio = document.getElementById("bio");
+}
 
 darkOn = localStorage.getItem("dark") == "true" ? true : false;
 ToggleDarkMode();
@@ -95,6 +98,10 @@ function ToggleDarkMode() {
 		if (f2 != null) {
 			f2.classList.remove("formLightmode");
 			f2.classList.add("formDarkmode");
+		}
+		if (bio != null) {
+			bio.classList.remove("formLightmode");
+			bio.classList.add("formDarkmode");
 		}
 		if (profile != null) {
 			profile.classList.remove("profileLightmode");
@@ -156,6 +163,10 @@ function ToggleDarkMode() {
 		if (f2 != null) {
 			f2.classList.add("formLightmode");
 			f2.classList.remove("formDarkmode");
+		}
+		if (bio != null) {
+			bio.classList.add("formLightmode");
+			bio.classList.remove("formDarkmode");
 		}
 		if (profile != null) {
 			profile.classList.add("profileLightmode");

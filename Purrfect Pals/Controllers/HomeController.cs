@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using Purrfect_Pals.Interfaces;
-using Purrfect_Pals.Models;
-using System.Diagnostics;
-using System.Net;
+﻿using System.Net;
 
 /*using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
@@ -245,6 +240,32 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
+		public string startChat(int personChoice)
+		{
+
+			Random random = new Random();
+
+			string tempToPass = "";
+
+			if (personChoice == 1)
+			{
+
+				tempToPass = "in1";
+
+			}
+			else
+			{
+
+				tempToPass = "in2";
+
+			}
+
+			tempToPass = Chating(random.Next(0, 5), tempToPass);
+
+			return tempToPass;
+
+		}
+
 		public string MagicallyGetCat()
 		{
 
@@ -384,6 +405,7 @@ namespace Purrfect_Pals.Controllers
 			JArray result = JArray.Parse(json);
 
 			return result[randomVal_0to5][type].ToString();
+
 		}
 
 	}
