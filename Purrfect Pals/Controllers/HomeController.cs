@@ -108,7 +108,7 @@ namespace Purrfect_Pals.Controllers
 
 				TempData["success"] = "User Added";
 
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction("EditBio", "Home");
 
 			}
 			else
