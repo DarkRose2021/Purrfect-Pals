@@ -369,5 +369,31 @@ namespace Purrfect_Pals.Controllers{
             return result[randomVal_0to5][type].ToString();
         }
 
+        public string Chatting2(string[] usedstuff) {
+
+            string path = "Data/bios/chat2.json";
+
+            string json = System.IO.File.ReadAllText(path);
+
+            JArray result = JArray.Parse(json);
+
+            string foundResult = "";
+            bool repeats = true;
+            Random random = new Random();
+            do {
+                string bioID = "b" + random.Next(1, 40).ToString();
+                foundResult = result[0][bioID].ToString();
+                repeats = false;
+                foreach (string s in usedstuff) {
+                    if (foundResult == s) {
+                        repeats = true;
+                    }
+                }
+            } while (!repeats);
+
+
+            return foundResult;
+        }
+
     }
 }
