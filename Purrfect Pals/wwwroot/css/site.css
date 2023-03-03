@@ -260,8 +260,9 @@ footer {
 	max-width: fit-content;
 	overflow: scroll;
 	padding: 1%;
-	border-radius: 5px;	
+	border-radius: 5px;
 	float: right;
+	overflow: hidden;
 }
 
 .bot {
@@ -272,6 +273,7 @@ footer {
 	overflow: scroll;
 	padding: 1%;
 	border-radius: 5px;
+	overflow: hidden;
 }
 
 .match{

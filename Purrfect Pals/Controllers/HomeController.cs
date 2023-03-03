@@ -18,20 +18,22 @@ using Purrfect_Pals.Interfaces;
 using System.IO;*/
 
 
-namespace Purrfect_Pals.Controllers{
+namespace Purrfect_Pals.Controllers
+{
 
-    public class HomeController : Controller{
+	public class HomeController : Controller
+	{
 
-        IDateAccessLayer dal;
+		IDateAccessLayer dal;
 
-        public HomeController(IDateAccessLayer indal)
-        {
+		public HomeController(IDateAccessLayer indal)
+		{
 
-            dal = indal;
+			dal = indal;
 
-        }
+		}
 
-        /*private readonly ILogger<HomeController> _logger;
+		/*private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger){
 
@@ -39,264 +41,276 @@ namespace Purrfect_Pals.Controllers{
 
         }*/
 
-        [HttpGet]
+		[HttpGet]
 
-        public IActionResult Index(){
+		public IActionResult Index()
+		{
 
-            //example grab
+			//example grab
 
-            /*string s;
+			/*string s;
 
             HttpContext.Session.SetString("Id", "grab info here");//get info
 
             s = HttpContext.Session.GetString("Id");*/
 
-            //createAiUsers(1, "allen", "TotallyStrongPasswordBro");
+			//createAiUsers(1, "allen", "TotallyStrongPasswordBro");
 
-            return View();
-        }
+			return View();
+		}
 
-        public IActionResult ProfilePage(PetBio bio)
-        {
+		public IActionResult ProfilePage(PetBio bio)
+		{
 
-            return View(bio);
+			return View(bio);
 
-        }
+		}
 
-        public IActionResult Login()
-        {
+		public IActionResult Login()
+		{
 
-            return View();
+			return View();
 
-        }
+		}
 
-        public IActionResult Matches()
-        {
+		public IActionResult Matches()
+		{
 
-            return View();
+			return View();
 
-        }
+		}
 
-        public IActionResult Chat()
-        {
+		public IActionResult Chat()
+		{
 
-            return View();
+			return View();
 
-        }
+		}
 
-        [HttpGet]
+		[HttpGet]
 
-        public IActionResult Signup()
-        {
+		public IActionResult Signup()
+		{
 
-            return View();
+			return View();
 
-        }
+		}
 
-        [HttpPost]
+		[HttpPost]
 
-        public IActionResult Signup(LoginInfo l)
-        {
+		public IActionResult Signup(LoginInfo l)
+		{
 
-            if (ModelState.IsValid)
-            {
+			if (ModelState.IsValid)
+			{
 
-                dal.AddUser(l); // adds user to database 
+				dal.AddUser(l); // adds user to database 
 
-                TempData["success"] = "User Added";
+				TempData["success"] = "User Added";
 
-                return RedirectToAction("Index", "Home");
+				return RedirectToAction("Index", "Home");
 
-            }
-            else
-            {
+			}
+			else
+			{
 
-                return View();
+				return View();
 
-            }
+			}
 
-        }
+		}
 
-        [HttpPost]
+		[HttpPost]
 
-        public IActionResult Login(LoginInfo l)
-        {
+		public IActionResult Login(LoginInfo l)
+		{
 
-            if (dal.LoginCheck(l.Username, l.Password) == true)
-            {
+			if (dal.LoginCheck(l.Username, l.Password) == true)
+			{
 
-                TempData["success"] = "Logged In!";
+				TempData["success"] = "Logged In!";
 
-                HttpContext.Session.SetString("Id", l.Id.ToString());//get info
+				HttpContext.Session.SetString("Id", l.Id.ToString());//get info
 
-                return RedirectToAction("EditBio", "Home");
+				return RedirectToAction("EditBio", "Home");
 
-            }
-            else
-            {
+			}
+			else
+			{
 
-                //spit out bad read or something idk.
+				//spit out bad read or something idk.
 
-                return View();
+				return View();
 
-            }
+			}
 
-        }
+		}
 
-        public IActionResult EditBio()
-        {
+		public IActionResult EditBio()
+		{
 
-            return View();
+			return View();
 
-        }
+		}
 
-        [HttpPost]
+		[HttpPost]
 
-        public IActionResult EditBio(PetBio bio){
+		public IActionResult EditBio(PetBio bio)
+		{
 
-            bio.Image = MagicallyGetCat();
+			bio.Image = MagicallyGetCat();
 
-            string id = HttpContext.Session.GetString("Id");
+			string id = HttpContext.Session.GetString("Id");
 
-            if (bio.Id == int.Parse(id)){
+			if (bio.Id == int.Parse(id))
+			{
 
-                dal.EditBio(bio);
+				dal.EditBio(bio);
 
-            }
+			}
 
-            return RedirectToAction("ProfilePage", bio);
+			return RedirectToAction("ProfilePage", bio);
 
-        }
+		}
 
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-       
-        public IActionResult Error(){
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		public IActionResult Error()
+		{
 
-        }
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
-        public IActionResult createAiUsers() {
+		}
 
-            LoginInfo ai = new LoginInfo();
+		public IActionResult createAiUsers()
+		{
 
-            PetBio aiBio = new PetBio();
+			LoginInfo ai = new LoginInfo();
 
-            string petname = "";
+			PetBio aiBio = new PetBio();
 
-            Random random = new Random();
+			string petname = "";
 
-            int i = random.Next(1, 42000);
+			Random random = new Random();
 
-            ai.Username = "aibot" + i.ToString();
+			int i = random.Next(1, 42000);
 
-            ai.Password = "Password" + i.ToString();
+			ai.Username = "aibot" + i.ToString();
 
-            petname = GetRadomName();
+			ai.Password = "Password" + i.ToString();
 
-            ai.PetName = petname;
+			petname = GetRadomName();
 
-            dal.AddUser(ai);
+			ai.PetName = petname;
 
-            aiBio.PetName = petname;
+			dal.AddUser(ai);
 
-            aiBio.PetAge = random.Next(4, 13);
+			aiBio.PetName = petname;
 
-            int animalChek = random.Next(0, 1);
+			aiBio.PetAge = random.Next(4, 13);
 
-            if (animalChek == 0) { //cat versions
+			int animalChek = random.Next(0, 1);
 
-                aiBio.Biography = MagicllyGetCatBio();
+			if (animalChek == 0)
+			{ //cat versions
 
-                aiBio.Image = MagicallyGetCat();
+				aiBio.Biography = MagicllyGetCatBio();
 
-            } else { //dog versions
+				aiBio.Image = MagicallyGetCat();
 
-                aiBio.Biography = MagicllyGetDogBio();
+			}
+			else
+			{ //dog versions
 
-                aiBio.Image = MagicallyGetDog();
+				aiBio.Biography = MagicllyGetDogBio();
 
-            }
+				aiBio.Image = MagicallyGetDog();
 
-            aiBio.Likes = GetLike();
+			}
 
-            aiBio.Dislikes = GetDisLike();
+			aiBio.Likes = GetLike();
 
-            if (ai.Id == dal.getUserID(ai.Username, ai.Password)) {
+			aiBio.Dislikes = GetDisLike();
 
-                dal.EditBio(aiBio);
+			if (ai.Id == dal.getUserID(ai.Username, ai.Password))
+			{
 
-            }
+				dal.EditBio(aiBio);
 
-            return RedirectToAction("Index");
+			}
 
-        }
+			return RedirectToAction("Index");
 
-        public string MagicallyGetCat() {
+		}
 
-            String url = "https://api.thecatapi.com/v1/images/search";
+		public string MagicallyGetCat()
+		{
 
-            WebClient client = new WebClient();
+			String url = "https://api.thecatapi.com/v1/images/search";
 
-            Stream data = client.OpenRead(url);
-            
-            StreamReader reader = new StreamReader(data); 
-            
-            String json = reader.ReadToEnd();
-            
-            data.Close();
-            
-            reader.Close();
+			WebClient client = new WebClient();
 
-            JArray result = JArray.Parse(json);
-;
-            return result[0]["url"].ToString();
+			Stream data = client.OpenRead(url);
 
-        }
+			StreamReader reader = new StreamReader(data);
 
-        public string MagicallyGetDog(){
+			String json = reader.ReadToEnd();
 
-            String url = "https://api.thedogapi.com/v1/images/search";
+			data.Close();
 
-            WebClient client = new WebClient();
+			reader.Close();
 
-            Stream data = client.OpenRead(url);
-            
-            StreamReader reader = new StreamReader(data);
+			JArray result = JArray.Parse(json);
+			;
+			return result[0]["url"].ToString();
 
-            String json = reader.ReadToEnd();
-            
-            data.Close();
-            
-            reader.Close();
+		}
 
-            JArray result = JArray.Parse(json);
+		public string MagicallyGetDog()
+		{
 
+			String url = "https://api.thedogapi.com/v1/images/search";
 
-            return result[0]["url"].ToString();
+			WebClient client = new WebClient();
 
-        }
+			Stream data = client.OpenRead(url);
 
-        public string MagicllyGetCatBio()
-        {
+			StreamReader reader = new StreamReader(data);
 
-            string path = "Data/bios/catbios.json";
+			String json = reader.ReadToEnd();
 
-            string json = System.IO.File.ReadAllText(path);
+			data.Close();
 
-            JArray result = JArray.Parse(json);
+			reader.Close();
 
-            Random random = new Random();
+			JArray result = JArray.Parse(json);
 
-            string bioID = "b" + random.Next(1, 37).ToString();
-            
-            return result[0][bioID].ToString();
-        
-        }
 
-		public string GetRadomName(){
+			return result[0]["url"].ToString();
+
+		}
+
+		public string MagicllyGetCatBio()
+		{
+
+			string path = "Data/bios/catbios.json";
+
+			string json = System.IO.File.ReadAllText(path);
+
+			JArray result = JArray.Parse(json);
+
+			Random random = new Random();
+
+			string bioID = "b" + random.Next(1, 37).ToString();
+
+			return result[0][bioID].ToString();
+
+		}
+
+		public string GetRadomName()
+		{
 
 			string path = "Data/bios/names.json";
 
@@ -305,69 +319,72 @@ namespace Purrfect_Pals.Controllers{
 			JArray result = JArray.Parse(json);
 
 			Random random = new Random();
-			
-            string bioID = "b" + random.Next(1, 28).ToString();
-			
-            return result[0][bioID].ToString();
-		
-        }
 
-		public string MagicllyGetDogBio() {
+			string bioID = "b" + random.Next(1, 28).ToString();
 
-            string path = "Data/bios/dogbios.json";
+			return result[0][bioID].ToString();
 
-            string json = System.IO.File.ReadAllText(path);
+		}
 
-            JArray result = JArray.Parse(json);
+		public string MagicllyGetDogBio()
+		{
 
-            Random random = new Random();
-           
-            string bioID = "b" + random.Next(1, 40).ToString();
-        
-            return result[0][bioID].ToString();
-        
-        }
+			string path = "Data/bios/dogbios.json";
 
-        public string GetLike() {
+			string json = System.IO.File.ReadAllText(path);
 
-            string path = "Data/bios/likes.json";
+			JArray result = JArray.Parse(json);
 
-            string json = System.IO.File.ReadAllText(path);
+			Random random = new Random();
 
-            JArray result = JArray.Parse(json);
+			string bioID = "b" + random.Next(1, 40).ToString();
 
-            Random random = new Random();
-            string bioID = "b" + random.Next(1, 40).ToString();
-            return result[0][bioID].ToString();
-        }
+			return result[0][bioID].ToString();
 
-        public string GetDisLike() {
+		}
 
-            string path = "Data/bios/dislikes.json";
+		public string GetLike()
+		{
 
-            string json = System.IO.File.ReadAllText(path);
+			string path = "Data/bios/likes.json";
 
-            JArray result = JArray.Parse(json);
+			string json = System.IO.File.ReadAllText(path);
 
-            Random random = new Random();
-            string bioID = "b" + random.Next(1, 40).ToString();
-            return result[0][bioID].ToString();
-        }
+			JArray result = JArray.Parse(json);
 
-        //type = out, in1, in2
-        //out is what we put out
-        //in1 and in2 are the two options to put in aka the buttons.
-        public string Chating(int randomVal_0to5, string type)
-        {
+			Random random = new Random();
+			string bioID = "b" + random.Next(1, 40).ToString();
+			return result[0][bioID].ToString();
+		}
 
-            string path = "Data/bios/chats.json";
+		public string GetDisLike()
+		{
 
-            string json = System.IO.File.ReadAllText(path);
+			string path = "Data/bios/dislikes.json";
 
-            JArray result = JArray.Parse(json);
+			string json = System.IO.File.ReadAllText(path);
 
-            return result[randomVal_0to5][type].ToString();
-        }
+			JArray result = JArray.Parse(json);
 
-    }
+			Random random = new Random();
+			string bioID = "b" + random.Next(1, 40).ToString();
+			return result[0][bioID].ToString();
+		}
+
+		//type = out, in1, in2
+		//out is what we put out
+		//in1 and in2 are the two options to put in aka the buttons.
+		public string Chating(int randomVal_0to5, string type)
+		{
+
+			string path = "Data/bios/chats.json";
+
+			string json = System.IO.File.ReadAllText(path);
+
+			JArray result = JArray.Parse(json);
+
+			return result[randomVal_0to5][type].ToString();
+		}
+
+	}
 }
