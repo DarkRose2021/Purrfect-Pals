@@ -13,6 +13,8 @@
 	--link-color: #4E3D42;
 	--link-hover: #47373C;
 	--link-active: #413237;
+	--chat-color1: #383368;
+	--chat-color2: #174C3C;
 	/*Dark mode vars*/
 	--dark-mode-bg: #1F363D;
 	--dark-mode-txt-color: #CFE0C3; /*light mode background color  #8361A1*/
@@ -103,9 +105,9 @@ body {
 }
 
 .formDarkmode {
-	background-color: var(--dm-form-bg);
-	border: solid 1px #839F87;
-	box-shadow: 5px 5px #6C8470;
+	background-color: var(--dark-mode-nav-color);
+	border: solid 1px #17292D;
+	box-shadow: 5px 5px #152529;
 }
 
 .darkmode {
@@ -157,8 +159,8 @@ h1, h3 {
 
 button, .btn {
 	border: none;
-	background-color: var(--blue);
-	color: var(--text-color) !important;
+	background-color: #557F79;
+	color: var(--dark-mode-txt-color) !important;
 	padding: 1%;
 	margin: 1%;
 	border-radius: 5px;
@@ -177,7 +179,7 @@ button, .btn {
 .center {
 	display: flex;
 	flex-direction: column;
-	align-content: center;
+	align-items: center;
 	justify-content: center;
 }
 
@@ -201,9 +203,7 @@ footer {
 	flex-direction: row;
 	margin: 1%;
 	padding: 1.5%;
-	
 	margin-left: 20%;
-	
 	border-radius: 5px;
 	
 }
@@ -245,7 +245,54 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	
 }
 
-.userchoices button{
+	.userchoices button {
+		background-color: var(--chat-color2);
+		color: var(--dark-mode-txt-color);
+	}
+
+.user {
+	background-color: var(--chat-color2);
+	color: var(--dark-mode-txt-color);
+	margin-left: 50%;
+	max-width: fit-content;
+	overflow: scroll;
+	padding: 1%;
+	border-radius: 5px;
+	float: right;
+	overflow: hidden;
+}
+
+.bot {
+	background-color: var(--chat-color1);
+	color: var(--dark-mode-txt-color);
+	margin-right: 50%;
+	max-width: fit-content;
+	overflow: scroll;
+	padding: 1%;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.match{
+	align-content: center;
+	text-align: center;
+	padding: 1%;
+	margin: 1%;
+	width: fit-content;
+	border-radius: 5px;
+}
+
+.match img{
+	border-radius: 5px;
+}
+
+.chats {
+	height: 30em;
+	background-color: var(--blue);
+	padding: 2%;
+	border-radius: 5px;
+	width: 900px; 
 }

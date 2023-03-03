@@ -1,14 +1,16 @@
-﻿
+﻿@model PetBio
 <h1 id="header">Matches</h1>
 
-<div class="match" id="match">
-	<img src="[Replace]" width="450" />
-	<h2>[Match Name]</h2>
-	<p><b>Age: </b></p>
-	<p><b>Likes: </b> </p>
-	<p><b>Dislikes: </b></p>
-	<p><b>Bio: </b></p>
-	<a class="btn">Like</a>
-	<a asp-action="Chat" asp-controller="home" class="btn">Chat</a>
-	<a class="btn">Dislike</a>
+<div class="center">
+	<div class="match" id="match">
+		<img src="@Model.Image" width="450" />
+		<h2>[Match Name]</h2>
+		<p><b>Age: </b> @Model.PetAge</p>
+		<p><b>Likes: </b> @Model.Likes</p>
+		<p><b>Dislikes: </b> @Model.Dislikes</p>
+		<p><b>Bio: </b> @Model.Biography</p>
+		<a class="btn">Like</a>
+		<a asp-action="Chat" asp-controller="home" class="btn">Chat</a>
+		<a class="btn">Dislike</a>
+	</div>
 </div>
