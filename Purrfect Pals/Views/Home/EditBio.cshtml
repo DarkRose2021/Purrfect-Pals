@@ -6,33 +6,33 @@
 @{
 }
 
-<h1 class="header">Edit Profile</h1>
+<h1 id="header">Edit Profile</h1>
 
-<form asp-controller="Home" asp-action="EditBio" method="post" class="form">
+<form asp-controller="Home" asp-action="EditBio" method="post" class="form" id="bio">
 
-	<label asp-for="PetName"></label>
+	<label asp-for="PetName"></label><br />
 
-	<input asp-for="PetName" />
+	<input asp-for="PetName" /><br />
 
-	<label asp-for="Biography"></label>
+	<label asp-for="Biography"></label><br />
 
-	<input asp-for="Biography" />
+	<input asp-for="Biography" /><br />
 
-	<label asp-for="PetAge"></label>
+	<label asp-for="PetAge"></label><br />
 
-	<input asp-for="PetAge" />
+	<input asp-for="PetAge" /><br />
 
-	<label asp-for="Likes"></label>
+	<label asp-for="Likes"></label><br />
 
-	<input asp-for="Likes" />
+	<input asp-for="Likes" /><br />
 
-	<label asp-for="Dislikes"></label>
+	<label asp-for="Dislikes"></label><br />
 
-	<input asp-for="Dislikes" />
+	<input asp-for="Dislikes" /><br />
 
 	<label asp-for="Image" hidden></label>
 
-	<input asp-for="Image" hidden/>
+	<input asp-for="Image" hidden /><br />
 
 	<button type="submit"> Save Changes </button>
 
