@@ -149,6 +149,10 @@ body {
 	color: var(--green-hover);
 }
 
+img{
+	max-width: 450px;
+}
+
 #a4{
 	cursor: pointer;
 }
