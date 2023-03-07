@@ -4,17 +4,16 @@
 <div class="center">
 	<div class="chats">
 		<div class="bot">
-			<p id="botmsg">[replace later]</p>
+			<p id="botmsg">@ViewBag.bot</p>
 		</div>
 
 		<div class="user">
-			<p id="usermsg">[replace later]</p>
+			<p id="usermsg">@ViewBag.user</p>
 		</div>
 	</div>
 </div>
 
 
 <div class="userchoices">
-	<button id="option1">[replace later]</button>
-	<button id="option2">[replace later]</button>
+	<a asp-action="Chat" asp-controller="Home" id="option1" class="btn">Chat</a>			
 </div>
