@@ -160,6 +160,8 @@ namespace Purrfect_Pals.Controllers
 
 			bio.Image = MagicallyGetCat();
 
+			string id = HttpContext.Session.GetString("Id");
+
 			if (bio.Id == int.Parse(id))
 			{
 
