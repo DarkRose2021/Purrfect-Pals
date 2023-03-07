@@ -73,10 +73,11 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-		public IActionResult Matches()
-		{
+		[HttpGet]
 
-			return View();
+		public IActionResult Matches(PetBio bio){
+
+			return View(bio);
 
 		}
 
@@ -132,11 +133,11 @@ namespace Purrfect_Pals.Controllers
 
 				HttpContext.Session.SetString("Id", l.Id.ToString());//get info
 
-				return RedirectToAction("EditBio", "Home");
+				PetBio bio = dal.GetBio(dal.getUserID(l.Username, l.Password));
 
-			}
-			else
-			{
+				return RedirectToAction("EditBio", "Home", bio);
+
+			}else{
 
 				//spit out bad read or something idk.
 
@@ -146,8 +147,7 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-		public IActionResult EditBio()
-		{
+		public IActionResult EditBio(){
 
 			return View();
 
@@ -158,12 +158,23 @@ namespace Purrfect_Pals.Controllers
 		public IActionResult EditBio(PetBio bio)
 		{
 
-			bio.Image = MagicallyGetCat();
+			Random rand = new Random();
+
+			int breed = rand.Next(0, 1);
+
+			if(breed == 1){
+
+				bio.Image = MagicallyGetCat();
+
+			}else{
+			
+				bio.Image = MagicallyGetDog();
+			
+			}
 
 			string id = HttpContext.Session.GetString("Id");
 
-			if (bio.Id == int.Parse(id))
-			{
+			if (bio.Id == int.Parse(id)){
 
 				dal.EditBio(bio);
 
@@ -177,8 +188,7 @@ namespace Purrfect_Pals.Controllers
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
-		public IActionResult Error()
-		{
+		public IActionResult Error(){
 
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
