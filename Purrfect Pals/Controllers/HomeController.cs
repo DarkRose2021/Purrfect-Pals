@@ -78,11 +78,19 @@ namespace Purrfect_Pals.Controllers
 
 			Random random = new Random();
 
-			int user = random.Next(0, dal.getUserCount());
+            PetBio bio = new PetBio();
 
-			PetBio bio = dal.GetBio(user);
+			do {
+
+				int user = random.Next(0, dal.getUserCount());
+
+				bio = dal.GetBio(user);
+
+			} while (bio == null);
 
 			return View(bio);
+
+
 			
 		}
 

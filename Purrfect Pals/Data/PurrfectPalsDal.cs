@@ -139,7 +139,7 @@ namespace Purrfect_Pals.Data{
 
         public int getUserCount(){
 
-            return db.UserInfo.Last().Id;
+            return(db.UserInfo.Count());
 
         }
 
