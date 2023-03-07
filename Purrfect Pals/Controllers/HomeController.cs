@@ -62,27 +62,31 @@ namespace Purrfect_Pals.Controllers
 		public IActionResult ProfilePage(PetBio bio)
 		{
 
-			return View(bio);
+            HttpContext.Session.SetString("Id", bio.Id.ToString());
+
+            return View(bio);
 
 		}
 
-		public IActionResult Login()
-		{
+		public IActionResult Login(){
 
 			return View();
 
 		}
 
-		[HttpGet]
+		public IActionResult Matches(){
 
-		public IActionResult Matches(PetBio bio){
+			Random random = new Random();
+
+			int user = random.Next(0, dal.getUserCount());
+
+			PetBio bio = dal.GetBio(user);
 
 			return View(bio);
-
+			
 		}
 
-		public IActionResult Chat()
-		{
+		public IActionResult Chat(){
 
 			return View();
 
@@ -149,16 +153,17 @@ namespace Purrfect_Pals.Controllers
 
 		public IActionResult EditBio(){
 
-			return View();
+            return View();
 
 		}
 
 		[HttpPost]
 
-		public IActionResult EditBio(PetBio bio)
-		{
+		public IActionResult EditBio(PetBio bio){
 
-			Random rand = new Random();
+            HttpContext.Session.SetString("Id", bio.Id.ToString());
+
+            Random rand = new Random();
 
 			int breed = rand.Next(0, 1);
 
@@ -221,18 +226,15 @@ namespace Purrfect_Pals.Controllers
 
 			aiBio.PetAge = random.Next(4, 13);
 
-			int animalChek = random.Next(0, 1);
+			int animalChek = random.Next(0, 7);
 
-			if (animalChek == 0)
-			{ //cat versions
+			if (animalChek  >= 4){ //cat versions
 
 				aiBio.Biography = MagicllyGetCatBio();
 
 				aiBio.Image = MagicallyGetCat();
 
-			}
-			else
-			{ //dog versions
+			}else{ //dog versions
 
 				aiBio.Biography = MagicllyGetDogBio();
 
@@ -255,8 +257,7 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-		public string startChat(int personChoice)
-		{
+		public string startChat(int personChoice){
 
 			Random random = new Random();
 
@@ -281,8 +282,7 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-		public string MagicallyGetCat()
-		{
+		public string MagicallyGetCat(){
 
 			String url = "https://api.thecatapi.com/v1/images/search";
 
