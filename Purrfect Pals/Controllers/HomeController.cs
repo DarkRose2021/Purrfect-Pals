@@ -75,9 +75,17 @@ namespace Purrfect_Pals.Controllers
 
 		[HttpGet]
 
-		public IActionResult Matches(PetBio bio){
+		public IActionResult Matches(PetBio bio)
+		{
 
 			return View(bio);
+
+		}
+
+		public IActionResult NewMatch()
+		{
+
+			return RedirectToAction("Matches", "Home");
 
 		}
 
@@ -137,7 +145,9 @@ namespace Purrfect_Pals.Controllers
 
 				return RedirectToAction("EditBio", "Home", bio);
 
-			}else{
+			}
+			else
+			{
 
 				//spit out bad read or something idk.
 
@@ -147,7 +157,8 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-		public IActionResult EditBio(){
+		public IActionResult EditBio()
+		{
 
 			return View();
 
@@ -162,19 +173,23 @@ namespace Purrfect_Pals.Controllers
 
 			int breed = rand.Next(0, 1);
 
-			if(breed == 1){
+			if (breed == 1)
+			{
 
 				bio.Image = MagicallyGetCat();
 
-			}else{
-			
+			}
+			else
+			{
+
 				bio.Image = MagicallyGetDog();
-			
+
 			}
 
 			string id = HttpContext.Session.GetString("Id");
 
-			if (bio.Id == int.Parse(id)){
+			if (bio.Id == int.Parse(id))
+			{
 
 				dal.EditBio(bio);
 
@@ -188,7 +203,8 @@ namespace Purrfect_Pals.Controllers
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
-		public IActionResult Error(){
+		public IActionResult Error()
+		{
 
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
@@ -423,31 +439,35 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-        public string Chatting2(string[] usedstuff) {
+		public string Chatting2(string[] usedstuff)
+		{
 
-            string path = "Data/bios/chat2.json";
+			string path = "Data/bios/chat2.json";
 
-            string json = System.IO.File.ReadAllText(path);
+			string json = System.IO.File.ReadAllText(path);
 
-            JArray result = JArray.Parse(json);
+			JArray result = JArray.Parse(json);
 
-            string foundResult = "";
-            bool repeats = true;
-            Random random = new Random();
-            do {
-                string bioID = "b" + random.Next(1, 40).ToString();
-                foundResult = result[0][bioID].ToString();
-                repeats = false;
-                foreach (string s in usedstuff) {
-                    if (foundResult == s) {
-                        repeats = true;
-                    }
-                }
-            } while (!repeats);
+			string foundResult = "";
+			bool repeats = true;
+			Random random = new Random();
+			do
+			{
+				string bioID = "b" + random.Next(1, 40).ToString();
+				foundResult = result[0][bioID].ToString();
+				repeats = false;
+				foreach (string s in usedstuff)
+				{
+					if (foundResult == s)
+					{
+						repeats = true;
+					}
+				}
+			} while (!repeats);
 
 
-            return foundResult;
-        }
+			return foundResult;
+		}
 
-    }
+	}
 }
