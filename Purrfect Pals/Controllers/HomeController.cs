@@ -92,6 +92,10 @@ namespace Purrfect_Pals.Controllers
 		public IActionResult Chat()
 		{
 
+			ViewBag.bot = startChat();
+
+			ViewBag.user = startChat();
+
 			return View();
 
 		}
@@ -271,10 +275,12 @@ namespace Purrfect_Pals.Controllers
 
 		}
 
-		public string startChat(int personChoice)
+		public string startChat()
 		{
 
 			Random random = new Random();
+
+			int personChoice = random.Next(1, 2);
 
 			string tempToPass = "";
 
@@ -292,6 +298,7 @@ namespace Purrfect_Pals.Controllers
 			}
 
 			tempToPass = Chating(random.Next(0, 5), tempToPass);
+
 
 			return tempToPass;
 
