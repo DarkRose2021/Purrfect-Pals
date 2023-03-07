@@ -3,7 +3,14 @@
 
 <div class="center">
 	<div class="match" id="match">
-		<img src="@Model.Image" width="450" />
+		@if (@Model.Image != null || @Model.Image != "")
+		{
+			<img src="@Model.Image" width="450" />
+		}
+		else
+		{
+			<img src="~/assets/placeholder.jpg" width="450" />
+		}
 		<h2>@Model.PetName</h2>
 		<p><b>Age: </b> @Model.PetAge</p>
 		<p><b>Likes: </b> @Model.Likes</p>
