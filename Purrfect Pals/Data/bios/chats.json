@@ -25,6 +25,21 @@
     "in2": "(╯°□°）╯︵ ┻━┻"
   },
   {
+    "out": "How are you today?",
+    "in1": "my day is the worst day that has ever dayed",
+    "in2": "I found a two dollar bill on the road. it was a sign for a great day to come!"
+  },
+  {
+    "out": "Did i say hello yet",
+    "in1": "no you didn't, Hello!'",
+    "in2": "please stop. to much greatings"
+  },
+  {
+    "out": "",
+    "in1": "",
+    "in2": ""
+  },
+  {
     "out": "whats your favorate color",
     "in1": "I'm allergic to color'",
     "in2": "my fav color is commanly found in the rainbow... somewhere 😉"
