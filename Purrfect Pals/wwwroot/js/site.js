@@ -52,8 +52,7 @@ function ToggleDarkMode() {
 	if (darkOn) {
 		
 		logo.src = `/assets/logoDark.png`;
-		nav.classList.remove("navbarLightMode");
-		nav.classList.remove("border-bottom");
+		nav.classList.remove("navbarLightMode", "border-bottom");
 		body.classList.remove("lightmode");
 		h1.classList.remove("headerLightMode");
 
@@ -111,9 +110,7 @@ function ToggleDarkMode() {
 			match.classList.remove("profileLightmode");
 			match.classList.add("profileDarkmode");
 		}
-
-		nav.classList.add("navDarkMode");
-		nav.classList.add("borderDarkMode");
+		nav.classList.add("navDarkMode", "borderDarkMode");
 		body.classList.add("darkmode");
 		h1.classList.add("headerDarkMode");
 		
@@ -123,8 +120,7 @@ function ToggleDarkMode() {
 			h3.classList.add("h3LightMode");
 		}
 		logo.src = `/assets/logoLight.png`;
-		nav.classList.add("navbarLightMode");
-		nav.classList.add("border-bottom");
+		nav.classList.add("navbarLightMode", "border-bottom");
 		body.classList.add("lightmode");
 		h1.classList.add("headerLightMode");
 		
@@ -176,9 +172,7 @@ function ToggleDarkMode() {
 			match.classList.add("profileLightmode");
 			match.classList.remove("profileDarkmode");
 		}
-
-		nav.classList.remove("navDarkMode");
-		nav.classList.remove("borderDarkMode");
+		nav.classList.remove("navDarkMode", "borderDarkMode");
 		body.classList.remove("darkmode");
 		h1.classList.remove("headerDarkMode");
 	}
